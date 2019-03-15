@@ -1,3 +1,5 @@
+# Viikko 1
+
 * Mitä olen tehnyt tällä viikolla?
 
 Ensimmäisellä viikolla olen käynyt läpi erilaisia aihevaihtoehtoja ja miettinyt mitä niistä haluaisin tehdä.
