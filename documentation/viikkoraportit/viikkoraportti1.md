@@ -13,4 +13,12 @@ Opin, että säännöllisiä lausekkeita käytettäessä osa tavoista on tehokka
 
 * Mikä jäi epäselväksi tai tuottanut vaikeuksia? Vastaa tähän kohtaan rehellisesti, koska saat tarvittaessa apua tämän kohdan perusteella.
 
+Minulle ei ole vielä selvää miten lähteä rakentamaan koodia, mutta eiköhän se selviä.
+
 * Mitä teen seuraavaksi?
+
+Alan toteuttaa Thompsonin algoritmia Javan valmiilla tietorakenteilla.
+
+* Käytetty aikaa
+
+Useita ei-laskettuja tunteja sekalaiseen googlettamiseen ja lukemiseen. Määrätietoista tiedonhakua, projektin perustaminen ja dokumenttien kirjoitus on vienyt aikaa noin kolme tuntia.
