@@ -3,4 +3,6 @@
 [Määrittelydokumentti](https://github.com/strajama/regular-expression-engine/blob/master/documentation/maarittelydokumentti.md)
 
 ## Viikkoraportit
-[viikkoraportti 1](https://github.com/strajama/regular-expression-engine/blob/master/documentation/viikkoraportit/viikkoraportti1.md)
+* [viikkoraportti 1](https://github.com/strajama/regular-expression-engine/blob/master/documentation/viikkoraportit/viikkoraportti1.md)
+
+* [viikkoraportti 2](https://github.com/strajama/regular-expression-engine/blob/master/documentation/viikkoraportit/viikkoraportti2.md)
