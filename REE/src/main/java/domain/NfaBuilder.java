@@ -53,32 +53,4 @@ public class NfaBuilder {
     public Nfa getNfa() {
         return nfa;
     }
-
 }
-/*
-function toNFA(postfixExp) {
-    if(postfixExp === '') {
-        return fromEpsilon();
-    }
-
-    const stack = [];
-
-    for (const token of postfixExp) {
-        if(token === '*') {
-            stack.push(closure(stack.pop()));
-        } else if (token === '|') {
-            const right = stack.pop();
-            const left = stack.pop();
-            stack.push(union(left, right));
-        } else if (token === '.') {
-            const right = stack.pop();
-            const left = stack.pop();
-            stack.push(concat(left, right));
-        } else {
-            stack.push(fromSymbol(token));
-        }
-    }
-
-    return stack.pop();
-}
-*/

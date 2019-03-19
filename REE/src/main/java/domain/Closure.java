@@ -14,8 +14,8 @@ public class Closure implements Rule {
     private Nfa nfa;
 
     public Closure(Nfa nfa) {
-        State start = new EpsilonState(false);
-        State end = new EpsilonState(true);
+        State start = new State(false);
+        State end = new State(true);
         start.addTransition(new EpsilonTransition(start, end));
         start.addTransition(new EpsilonTransition(start, nfa.getStart()));
         nfa.getEnd().addTransition(new EpsilonTransition(nfa.getEnd(), end));

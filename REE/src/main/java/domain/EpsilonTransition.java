@@ -11,8 +11,8 @@ package domain;
  */
 public class EpsilonTransition implements Transition {
 
-    State from;
-    State to;
+    private State from;
+    private State to;
 
     public EpsilonTransition(State from, State to) {
         this.from = from;
@@ -25,5 +25,9 @@ public class EpsilonTransition implements Transition {
 
     public State getTo() {
         return to;
+    }
+    
+    public boolean hasSymbol() {
+        return false;
     }
 }

@@ -16,8 +16,8 @@ public class SymbolNfa implements Nfa {
     private char symbol;
 
     public SymbolNfa(char symbol) {
-        this.start = new EpsilonState(false);
-        this.end = new EpsilonState(true);
+        this.start = new State(false);
+        this.end = new State(true);
         this.symbol = symbol;
         start.addTransition(new SymbolTransition(start, end, symbol));
     }

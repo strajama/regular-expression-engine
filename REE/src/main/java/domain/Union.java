@@ -14,11 +14,11 @@ public class Union implements Rule {
     private Nfa nfa;
 
     public Union(Nfa first, Nfa second) {
-        State start = new EpsilonState(false);
+        State start = new State(false);
         start.addTransition(new EpsilonTransition(start, first.getStart()));
         start.addTransition(new EpsilonTransition(start, second.getStart()));
         
-        State end = new EpsilonState(true);
+        State end = new State(true);
         end.addTransition(new EpsilonTransition(first.getEnd(), end));
         first.getEnd().setIsEnd(false);
         end.addTransition(new EpsilonTransition(second.getEnd(), end));

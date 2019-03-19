@@ -13,4 +13,5 @@ public interface Transition {
     
     State getFrom();
     State getTo();
+    boolean hasSymbol();
 }

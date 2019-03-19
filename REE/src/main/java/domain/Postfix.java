@@ -13,23 +13,22 @@ import java.util.Stack;
  */
 public class Postfix {
 
-    private String postfix;
+    private String postfixString;
 
     public Postfix(String expression) {
-        this.postfix = "";
+        this.postfixString = "";
         insertConcat(expression);
-        System.out.println("postfix "+this.postfix);
         toPostfix();
     }
 
-    public String getPostfix() {
-        return postfix;
+    public String getPostfixString() {
+        return postfixString;
     }
 
     private void insertConcat(String expression) {
         for (int i = 0; i < expression.length(); i++) {
             char token = expression.charAt(i);
-            postfix += token;
+            this.postfixString += token;
 
             if (token == '(' || token == '|') {
                 continue;
@@ -40,7 +39,7 @@ public class Postfix {
                 if (lookahead == '*' || lookahead == '|' || lookahead == ')') {
                     continue;
                 }
-                postfix += '·';
+                this.postfixString += '·';
             }
         }
     }
@@ -49,10 +48,9 @@ public class Postfix {
         String output = "";
         Stack<Character> operatorStack = new Stack();
 
-        for (int i = 0; i < this.postfix.length(); i++) {
-            char token = this.postfix.charAt(i);
+        for (int i = 0; i < this.postfixString.length(); i++) {
+            char token = this.postfixString.charAt(i);
             Operator operator = tokenToOperator(token);
-
             if (operator != null) {
                 if (!operatorStack.empty()) {
                     Operator oPeek = tokenToOperator(operatorStack.peek());
@@ -77,7 +75,10 @@ public class Postfix {
                 output += token;
             }
         }
-        this.postfix = output;
+        while (!operatorStack.empty()) {
+            output += operatorStack.pop();
+        }
+        this.postfixString = output;
 
     }
 

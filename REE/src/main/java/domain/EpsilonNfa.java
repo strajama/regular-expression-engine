@@ -15,8 +15,8 @@ public class EpsilonNfa implements Nfa {
     private State end;
 
     public EpsilonNfa() {
-        this.start = new EpsilonState(false);
-        this.end = new EpsilonState(true);
+        this.start = new State(false);
+        this.end = new State(true);
         start.addTransition(new EpsilonTransition(start, end));
     }
 

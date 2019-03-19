@@ -28,6 +28,12 @@ public class SymbolTransition implements Transition {
     public State getTo() {
         return to;
     }
+
+    public char getSymbol() {
+        return symbol;
+    }
     
-    
+    public boolean hasSymbol() {
+        return true;
+    }
 }
