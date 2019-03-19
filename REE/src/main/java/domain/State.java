@@ -5,6 +5,9 @@
  */
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author strajama
@@ -12,12 +15,12 @@ package domain;
 public class State {
 
     private SymbolTransition symbolTransition;
-    private EpsilonTransition[] epsilonTransitions;
+    private List<EpsilonTransition> epsilonTransitions;
     private boolean isEnd;
 
     public State(boolean isEnd) {
         this.isEnd = isEnd;
-        this.epsilonTransitions = new EpsilonTransition[2];
+        this.epsilonTransitions = new ArrayList<>();
         this.symbolTransition = null;
     }
 
@@ -25,7 +28,7 @@ public class State {
         return symbolTransition;
     }
 
-    public EpsilonTransition[] getEpsilonTransitions() {
+    public List<EpsilonTransition> getEpsilonTransitions() {
         return epsilonTransitions;
     }
 
@@ -37,12 +40,12 @@ public class State {
         this.isEnd = isEnd;
     }
 
-    public boolean hasSymbolTransitions() {
+    public boolean hasSymbolTransition() {
         return this.symbolTransition != null;
     }
 
     public boolean hasEpsilonTransitions() {
-        return this.epsilonTransitions[0] != null;
+        return !this.epsilonTransitions.isEmpty();
     }
 
     public void addTransition(Transition transition) {
@@ -50,17 +53,13 @@ public class State {
             if (transition.hasSymbol()) {
                 this.symbolTransition = (SymbolTransition) transition;
             } else {
-                if (this.epsilonTransitions[0] == null) {
-                    this.epsilonTransitions[0] = (EpsilonTransition) transition;
-                } else if (this.epsilonTransitions[1] == null) {
-                    this.epsilonTransitions[1] = (EpsilonTransition) transition;
-                }
+                this.epsilonTransitions.add((EpsilonTransition) transition);
             }
         }
     }
 
     private boolean noTransitions() {
-        return this.symbolTransition == null && (this.epsilonTransitions[0] == null || this.epsilonTransitions[1] == null);
+        return this.symbolTransition == null && this.epsilonTransitions.isEmpty();
     }
 
 }

@@ -27,6 +27,7 @@ public class Postfix {
 
     private void insertConcat(String expression) {
         for (int i = 0; i < expression.length(); i++) {
+            
             char token = expression.charAt(i);
             this.postfixString += token;
 

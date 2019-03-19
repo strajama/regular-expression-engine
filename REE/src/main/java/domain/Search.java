@@ -25,9 +25,8 @@ public class Search {
             char symbol = word.charAt(i);
             List<State> nextStates = new ArrayList<State>();
 
-            for (State state : currentStates) {
-                
-                if (state.hasSymbolTransitions() && state.getSymbolTransition().getSymbol() == symbol) {
+            for (State state : currentStates) {                
+                if (state.hasSymbolTransition() && state.getSymbolTransition().getSymbol() == symbol) {
                     State nextState = state.getSymbolTransition().getTo();
                     nextStates = addNextState(nextState, nextStates, new ArrayList<State>());
                 }
@@ -48,13 +47,14 @@ public class Search {
 
     private List<State> addNextState(State state, List<State> nextStates, List<State> visited) {
         if (state.hasEpsilonTransitions()) {
-            for (int i = 0; i < state.getEpsilonTransitions().length; i++) {
-                EpsilonTransition etr = state.getEpsilonTransitions()[i];
+            for (EpsilonTransition etr : state.getEpsilonTransitions()) {
                 if (etr != null && !visited.contains(etr.getTo())) {
                     visited.add(etr.getTo());
                     addNextState(etr.getTo(), nextStates, visited);
                 }
             }
+        } else if (state.hasSymbolTransition()) {
+            nextStates.add(state);
         } else {
             nextStates.add(state);
         }
