@@ -13,12 +13,12 @@ import static org.junit.Assert.*;
  *
  * @author strajama
  */
-public class NfaTest {
+public class NfaBasicTest {
 
     SymbolNfa sNfa;
     EpsilonNfa eNfa;
 
-    public NfaTest() {
+    public NfaBasicTest() {
     }
 
     @Before
@@ -44,7 +44,8 @@ public class NfaTest {
         assertFalse(eNfa.getStart().getIsEnd());
         assertTrue(eNfa.getEnd().getIsEnd());
         assertTrue(eNfa.getStart().hasEpsilonTransitions());
-        EpsilonTransition et = eNfa.getStart().getEpsilonTransitions().get(0);
+        assertEquals(1, eNfa.getStart().numberOfEpsilons());
+        EpsilonTransition et = eNfa.getStart().getEpsilonTransitions()[0];
         assertEquals(et.getTo(), eNfa.getEnd());
         assertFalse(eNfa.getStart().hasSymbolTransition());
         assertFalse(eNfa.getEnd().hasEpsilonTransitions());
@@ -58,14 +59,14 @@ public class NfaTest {
         assertFalse(sNfa.getEnd().hasEpsilonTransitions());
         assertFalse(eNfa.getEnd().hasEpsilonTransitions());
         Nfa union = new UnionNfa(sNfa, eNfa);
-        State firstS = union.getStart().getEpsilonTransitions().get(0).getTo();
-        State secondS = union.getStart().getEpsilonTransitions().get(1).getTo();
+        State firstS = union.getStart().getEpsilonTransitions()[0].getTo();
+        State secondS = union.getStart().getEpsilonTransitions()[1].getTo();
         assertEquals(sNfa.getStart(), firstS);
         assertEquals(eNfa.getStart(), secondS);
         assertFalse(sNfa.getEnd().getIsEnd());
         assertFalse(eNfa.getEnd().getIsEnd());
-        assertEquals(sNfa.getEnd().getEpsilonTransitions().get(0).getTo(), union.getEnd());
-        assertEquals(eNfa.getEnd().getEpsilonTransitions().get(0).getTo(), union.getEnd());
+        assertEquals(sNfa.getEnd().getEpsilonTransitions()[0].getTo(), union.getEnd());
+        assertEquals(eNfa.getEnd().getEpsilonTransitions()[0].getTo(), union.getEnd());
     }
 
     @Test
@@ -76,16 +77,16 @@ public class NfaTest {
         Nfa closure = new ClosureNfa(sNfa);
         assertFalse(sNfa.getEnd().getIsEnd());
         assertTrue(sNfa.getEnd().hasEpsilonTransitions());
-        assertEquals(2, sNfa.getEnd().getEpsilonTransitions().size());
-        assertEquals(sNfa.getEnd().getEpsilonTransitions().get(0).getTo(), closure.getEnd());
-        assertEquals(sNfa.getEnd().getEpsilonTransitions().get(1).getTo(), sNfa.getStart());
+        assertEquals(2, sNfa.getEnd().numberOfEpsilons());
+        assertEquals(sNfa.getEnd().getEpsilonTransitions()[0].getTo(), closure.getEnd());
+        assertEquals(sNfa.getEnd().getEpsilonTransitions()[1].getTo(), sNfa.getStart());
         assertFalse(sNfa.getStart().hasEpsilonTransitions());
         assertTrue(closure.getStart().hasEpsilonTransitions());
         assertFalse(closure.getEnd().hasEpsilonTransitions());
         assertTrue(closure.getEnd().getIsEnd());
-        assertEquals(2, closure.getStart().getEpsilonTransitions().size());
-        assertEquals(closure.getStart().getEpsilonTransitions().get(0).getTo(), closure.getEnd());
-        assertEquals(closure.getStart().getEpsilonTransitions().get(1).getTo(), sNfa.getStart());
+        assertEquals(2, closure.getStart().numberOfEpsilons());
+        assertEquals(closure.getStart().getEpsilonTransitions()[0].getTo(), closure.getEnd());
+        assertEquals(closure.getStart().getEpsilonTransitions()[1].getTo(), sNfa.getStart());
     }
 
     @Test
@@ -96,8 +97,8 @@ public class NfaTest {
         Nfa concat = new ConcatNfa(eNfa, sNfa);
         assertFalse(eNfa.getEnd().getIsEnd());
         assertTrue(eNfa.getEnd().hasEpsilonTransitions());
-        assertEquals(1, eNfa.getEnd().getEpsilonTransitions().size());
-        assertEquals(eNfa.getEnd().getEpsilonTransitions().get(0).getTo(), sNfa.getStart());
+        assertEquals(1, eNfa.getEnd().numberOfEpsilons());
+        assertEquals(eNfa.getEnd().getEpsilonTransitions()[0].getTo(), sNfa.getStart());
         assertEquals(eNfa.getStart(), concat.getStart());
         assertEquals(sNfa.getEnd(), concat.getEnd());
     }

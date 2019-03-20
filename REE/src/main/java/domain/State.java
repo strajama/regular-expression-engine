@@ -15,12 +15,12 @@ import java.util.List;
 public class State {
 
     private SymbolTransition symbolTransition;
-    private List<EpsilonTransition> epsilonTransitions;
+    private EpsilonTransition[] epsilonTransitions;
     private boolean isEnd;
 
     public State(boolean isEnd) {
         this.isEnd = isEnd;
-        this.epsilonTransitions = new ArrayList<>();
+        this.epsilonTransitions = new EpsilonTransition[2];
         this.symbolTransition = null;
     }
 
@@ -28,7 +28,7 @@ public class State {
         return symbolTransition;
     }
 
-    public List<EpsilonTransition> getEpsilonTransitions() {
+    public EpsilonTransition[] getEpsilonTransitions() {
         return epsilonTransitions;
     }
 
@@ -45,14 +45,27 @@ public class State {
     }
 
     public boolean hasEpsilonTransitions() {
-        return !this.epsilonTransitions.isEmpty();
+        return this.epsilonTransitions[0] != null;
     }
 
     public void addTransition(Transition transition) {
-        if (transition.hasSymbol() && this.epsilonTransitions.isEmpty()) {
+        if (transition.hasSymbol() && !hasEpsilonTransitions()) {
             this.symbolTransition = (SymbolTransition) transition;
-        } else if (!transition.hasSymbol() && this.epsilonTransitions.size() < 2) {
-            this.epsilonTransitions.add((EpsilonTransition) transition);
+        } else if (!transition.hasSymbol()) {
+            if (this.epsilonTransitions[0] == null) {
+                this.epsilonTransitions[0] = (EpsilonTransition) transition;
+            } else if (this.epsilonTransitions[1] == null) {
+                this.epsilonTransitions[1] = (EpsilonTransition) transition;
+            }
         }
+    }
+    
+    public int numberOfEpsilons() {
+        if (this.epsilonTransitions[0] == null) {
+            return 0;
+        } else if (this.epsilonTransitions[1] == null) {
+            return 1;
+        }
+        return 2;
     }
 }
