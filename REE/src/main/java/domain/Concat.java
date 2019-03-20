@@ -14,10 +14,8 @@ public class Concat implements Rule {
     private Nfa nfa;
 
     public Concat(Nfa first, Nfa second) {
-        State start = first.getEnd();
-        State end = second.getStart();
-        start.addTransition(new EpsilonTransition(start, end));
-        start.setIsEnd(false);
+        first.getEnd().addTransition(new EpsilonTransition(first.getEnd(), second.getStart()));
+        first.getEnd().setIsEnd(false);
         this.nfa = new EpsilonNfa(first.getStart(), second.getEnd());
     }
 

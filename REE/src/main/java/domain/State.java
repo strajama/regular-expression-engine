@@ -49,17 +49,10 @@ public class State {
     }
 
     public void addTransition(Transition transition) {
-        if (noTransitions()) {
-            if (transition.hasSymbol()) {
-                this.symbolTransition = (SymbolTransition) transition;
-            } else {
-                this.epsilonTransitions.add((EpsilonTransition) transition);
-            }
+        if (transition.hasSymbol() && this.epsilonTransitions.isEmpty()) {
+            this.symbolTransition = (SymbolTransition) transition;
+        } else {
+            this.epsilonTransitions.add((EpsilonTransition) transition);
         }
     }
-
-    private boolean noTransitions() {
-        return this.symbolTransition == null && this.epsilonTransitions.isEmpty();
-    }
-
 }

@@ -11,9 +11,9 @@ package domain;
  */
 public class SymbolTransition implements Transition {
     
-    State from;
-    State to;
-    char symbol;
+    private State from;
+    private State to;
+    private char symbol;
 
     public SymbolTransition(State from, State to, char symbol) {
         this.from = from;
