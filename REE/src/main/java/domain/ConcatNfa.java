@@ -9,20 +9,24 @@ package domain;
  *
  * @author strajama
  */
-public class Concat implements Rule {
-    
-    private Nfa nfa;
+public class ConcatNfa implements Nfa {
 
-    public Concat(Nfa first, Nfa second) {
+    private State start;
+    private State end;
+
+    public ConcatNfa(Nfa first, Nfa second) {
         first.getEnd().addTransition(new EpsilonTransition(first.getEnd(), second.getStart()));
         first.getEnd().setIsEnd(false);
-        this.nfa = new EpsilonNfa(first.getStart(), second.getEnd());
+        this.start = first.getStart();
+        this.end = second.getEnd();
     }
 
-    public Nfa getNfa() {
-        return nfa;
+    public State getStart() {
+        return this.start;
     }
-    
-    
-    
+
+    public State getEnd() {
+        return this.end;
+    }
+
 }

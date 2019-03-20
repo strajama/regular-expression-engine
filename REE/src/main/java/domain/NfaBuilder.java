@@ -11,13 +11,16 @@ import java.util.Stack;
  *
  * @author strajama
  */
-public class NfaBuilder {
+public class NfaBuilder implements Nfa {
 
-    private Nfa nfa;
+    private State start;
+    private State end;
 
     public NfaBuilder(String postfix) {
+        Nfa nfa = new EpsilonNfa();
         if ("".equals(postfix)) {
-            this.nfa = new EpsilonNfa();
+            this.start = nfa.getStart();
+            this.end = nfa.getEnd();
         } else {
             Stack<Nfa> stack = new Stack();
 
@@ -25,32 +28,36 @@ public class NfaBuilder {
                 char token = postfix.charAt(i);
                 switch (token) {
                     case '*':
-                        stack.push(new Closure(stack.pop()).getNfa());
+                        stack.push(new ClosureNfa(stack.pop()));
                         break;
-                    case '|':
-                        {
-                            Nfa right = stack.pop();
-                            Nfa left = stack.pop();
-                            stack.push(new Union(left, right).getNfa());
-                            break;
-                        }
-                    case '·':
-                        {
-                            Nfa right = stack.pop();
-                            Nfa left = stack.pop();
-                            stack.push(new Concat(left, right).getNfa());
-                            break;
-                        }
+                    case '|': {
+                        Nfa right = stack.pop();
+                        Nfa left = stack.pop();
+                        stack.push(new UnionNfa(left, right));
+                        break;
+                    }
+                    case '·': {
+                        Nfa right = stack.pop();
+                        Nfa left = stack.pop();
+                        stack.push(new ConcatNfa(left, right));
+                        break;
+                    }
                     default:
                         stack.push(new SymbolNfa(token));
                         break;
                 }
             }
-            this.nfa = stack.pop();
+            nfa = stack.pop();
+            this.start = nfa.getStart();
+            this.end = nfa.getEnd();
         }
     }
 
-    public Nfa getNfa() {
-        return nfa;
+    public State getStart() {
+        return this.start;
+    }
+
+    public State getEnd() {
+        return this.end;
     }
 }

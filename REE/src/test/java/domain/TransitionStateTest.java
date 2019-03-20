@@ -64,9 +64,16 @@ public class TransitionStateTest {
         assertFalse(startE.hasSymbolTransition());
         startE.addTransition(et);
         assertTrue(startE.hasEpsilonTransitions());
+        assertEquals(1, startE.getEpsilonTransitions().size());
+        startE.addTransition(st);
         assertFalse(startE.hasSymbolTransition());
         assertTrue(startE.getEpsilonTransitions().contains(et));
         assertEquals(startE, et.getFrom());
         assertEquals(endE, et.getTo());
+        //EpsilonTransition et2 = new EpsilonTransition(startS, endS);
+        startE.addTransition(et);
+        assertEquals(2, startE.getEpsilonTransitions().size());
+        startE.addTransition(et);
+        assertEquals(2, startE.getEpsilonTransitions().size());
     }
 }

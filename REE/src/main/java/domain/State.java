@@ -51,7 +51,7 @@ public class State {
     public void addTransition(Transition transition) {
         if (transition.hasSymbol() && this.epsilonTransitions.isEmpty()) {
             this.symbolTransition = (SymbolTransition) transition;
-        } else {
+        } else if (!transition.hasSymbol() && this.epsilonTransitions.size() < 2) {
             this.epsilonTransitions.add((EpsilonTransition) transition);
         }
     }

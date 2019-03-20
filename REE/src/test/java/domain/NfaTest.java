@@ -65,14 +65,24 @@ public class NfaTest {
         assertFalse(eNfa.getEnd().hasEpsilonTransitions());
         assertFalse(eNfa.getEnd().hasSymbolTransition());
     }
-    
+
     @Test
     public void unionNfa() {
-        Nfa union = new Union(sNfa, eNfa).getNfa();
+        State endS = sNfa.getEnd();
+        State endE = eNfa.getEnd();
+        assertTrue(endS.getIsEnd());
+        assertTrue(endE.getIsEnd());
+        assertFalse(endS.hasEpsilonTransitions());
+        assertFalse(endE.hasEpsilonTransitions());
+        Nfa union = new UnionNfa(sNfa, eNfa);
         State firstS = union.getStart().getEpsilonTransitions().get(0).getTo();
         State secondS = union.getStart().getEpsilonTransitions().get(1).getTo();
         assertEquals(sNfa.getStart(), firstS);
         assertEquals(eNfa.getStart(), secondS);
+        assertFalse(endS.getIsEnd());
+        assertFalse(endE.getIsEnd());
+        assertEquals(endS.getEpsilonTransitions().get(0).getTo(), union.getEnd());
+        assertEquals(endE.getEpsilonTransitions().get(0).getTo(), union.getEnd());
     }
 
 }

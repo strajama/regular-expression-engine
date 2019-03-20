@@ -16,7 +16,7 @@ public class Matcher {
 
     public Matcher(String expression) {
         this.postfixExp = new Postfix(expression).getPostfixString();
-        this.nfa = new NfaBuilder(postfixExp).getNfa();        
+        this.nfa = new NfaBuilder(postfixExp);        
     }
     
     public boolean wordMatches(String word) {
