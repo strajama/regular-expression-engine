@@ -11,12 +11,12 @@ import java.util.Stack;
  *
  * @author strajama
  */
-public class NfaBuilder implements Nfa {
+public class BuilderNfa implements Nfa {
 
     private State start;
     private State end;
 
-    public NfaBuilder(String postfix) {
+    public BuilderNfa(String postfix) {
         Nfa nfa = new EpsilonNfa();
         if ("".equals(postfix)) {
             this.start = nfa.getStart();

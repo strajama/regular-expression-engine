@@ -5,10 +5,7 @@
  */
 package domain;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,12 +15,6 @@ import static org.junit.Assert.*;
  */
 public class NfaTest {
 
-//    State startS;
-//    State endS;
-//    State startE;
-//    State endE;
-//    SymbolTransition st;
-//    EpsilonTransition et;
     SymbolNfa sNfa;
     EpsilonNfa eNfa;
 
@@ -32,12 +23,6 @@ public class NfaTest {
 
     @Before
     public void setUp() {
-//        startS = new State(false);
-//        endS = new State(true);
-//        startE = new State(false);
-//        endE = new State(true);
-//        st = new SymbolTransition(startS, endS, 'a');
-//        et = new EpsilonTransition(startE, endE);
         sNfa = new SymbolNfa('a');
         eNfa = new EpsilonNfa();
     }
@@ -68,21 +53,53 @@ public class NfaTest {
 
     @Test
     public void unionNfa() {
-        State endS = sNfa.getEnd();
-        State endE = eNfa.getEnd();
-        assertTrue(endS.getIsEnd());
-        assertTrue(endE.getIsEnd());
-        assertFalse(endS.hasEpsilonTransitions());
-        assertFalse(endE.hasEpsilonTransitions());
+        assertTrue(sNfa.getEnd().getIsEnd());
+        assertTrue(eNfa.getEnd().getIsEnd());
+        assertFalse(sNfa.getEnd().hasEpsilonTransitions());
+        assertFalse(eNfa.getEnd().hasEpsilonTransitions());
         Nfa union = new UnionNfa(sNfa, eNfa);
         State firstS = union.getStart().getEpsilonTransitions().get(0).getTo();
         State secondS = union.getStart().getEpsilonTransitions().get(1).getTo();
         assertEquals(sNfa.getStart(), firstS);
         assertEquals(eNfa.getStart(), secondS);
-        assertFalse(endS.getIsEnd());
-        assertFalse(endE.getIsEnd());
-        assertEquals(endS.getEpsilonTransitions().get(0).getTo(), union.getEnd());
-        assertEquals(endE.getEpsilonTransitions().get(0).getTo(), union.getEnd());
+        assertFalse(sNfa.getEnd().getIsEnd());
+        assertFalse(eNfa.getEnd().getIsEnd());
+        assertEquals(sNfa.getEnd().getEpsilonTransitions().get(0).getTo(), union.getEnd());
+        assertEquals(eNfa.getEnd().getEpsilonTransitions().get(0).getTo(), union.getEnd());
+    }
+
+    @Test
+    public void closureNfa() {
+        assertTrue(sNfa.getEnd().getIsEnd());
+        assertFalse(sNfa.getEnd().hasEpsilonTransitions());
+        assertFalse(sNfa.getStart().hasEpsilonTransitions());
+        Nfa closure = new ClosureNfa(sNfa);
+        assertFalse(sNfa.getEnd().getIsEnd());
+        assertTrue(sNfa.getEnd().hasEpsilonTransitions());
+        assertEquals(2, sNfa.getEnd().getEpsilonTransitions().size());
+        assertEquals(sNfa.getEnd().getEpsilonTransitions().get(0).getTo(), closure.getEnd());
+        assertEquals(sNfa.getEnd().getEpsilonTransitions().get(1).getTo(), sNfa.getStart());
+        assertFalse(sNfa.getStart().hasEpsilonTransitions());
+        assertTrue(closure.getStart().hasEpsilonTransitions());
+        assertFalse(closure.getEnd().hasEpsilonTransitions());
+        assertTrue(closure.getEnd().getIsEnd());
+        assertEquals(2, closure.getStart().getEpsilonTransitions().size());
+        assertEquals(closure.getStart().getEpsilonTransitions().get(0).getTo(), closure.getEnd());
+        assertEquals(closure.getStart().getEpsilonTransitions().get(1).getTo(), sNfa.getStart());
+    }
+
+    @Test
+    public void concatNfa() {
+        assertTrue(eNfa.getEnd().getIsEnd());
+        assertFalse(sNfa.getStart().hasEpsilonTransitions());
+        assertFalse(eNfa.getEnd().hasEpsilonTransitions());
+        Nfa concat = new ConcatNfa(eNfa, sNfa);
+        assertFalse(eNfa.getEnd().getIsEnd());
+        assertTrue(eNfa.getEnd().hasEpsilonTransitions());
+        assertEquals(1, eNfa.getEnd().getEpsilonTransitions().size());
+        assertEquals(eNfa.getEnd().getEpsilonTransitions().get(0).getTo(), sNfa.getStart());
+        assertEquals(eNfa.getStart(), concat.getStart());
+        assertEquals(sNfa.getEnd(), concat.getEnd());
     }
 
 }
