@@ -43,7 +43,6 @@ public class NfaBasicTest {
     @Test
     public void epsilonNfa() {
         EpsilonNfa epsilon = new EpsilonNfa();
-        EpsilonNfa epsilon2 = new EpsilonNfa(epsilon.getStart(), eNfa.getEnd());
         assertFalse(epsilon.getStart().getIsEnd());
         assertTrue(epsilon.getEnd().getIsEnd());
         assertTrue(epsilon.getStart().hasEpsilonTransitions());
@@ -53,12 +52,6 @@ public class NfaBasicTest {
         assertFalse(epsilon.getStart().hasSymbolTransition());
         assertFalse(epsilon.getEnd().hasEpsilonTransitions());
         assertFalse(epsilon.getEnd().hasSymbolTransition());
-        assertFalse(epsilon2.getStart().getIsEnd());
-        assertTrue(epsilon2.getStart().hasEpsilonTransitions());
-        assertEquals(1, epsilon2.getStart().numberOfEpsilons());
-        assertFalse(epsilon2.getStart().hasSymbolTransition());
-        assertFalse(epsilon2.getEnd().hasEpsilonTransitions());
-        assertFalse(epsilon2.getEnd().hasSymbolTransition());
     }
 
     @Test

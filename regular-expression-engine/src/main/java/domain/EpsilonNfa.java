@@ -1,36 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain;
 
 /**
+ * EpsilonNfa is basic building block for more complex Nfa's with epsilon
+ * transition or transitions.
  *
  * @author strajama
  */
-public class EpsilonNfa implements Nfa {
-    
-    private State start;
-    private State end;
+public class EpsilonNfa extends NfaClass {
 
+    /**
+     * Creates new EpsilonNfa that has beginning and end state and epsilon
+     * transition between them.
+     */
     public EpsilonNfa() {
         this.start = new State(false);
         this.end = new State(true);
-        start.addTransition(new EpsilonTransition(start, end));
+        this.start.addTransition(new EpsilonTransition(this.start, this.end));
     }
-
-    public EpsilonNfa(State start, State end) {
-        this.start = start;
-        this.end = end;
-    }
-
-    public State getStart() {
-        return start;
-    }
-
-    public State getEnd() {
-        return end;
-    }
-
 }

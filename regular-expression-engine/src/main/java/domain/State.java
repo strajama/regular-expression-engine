@@ -14,7 +14,8 @@ public class State {
     private boolean isEnd;
 
     /**
-     * Creates new State
+     * Creates new State. State has null value in symbol transition and null
+     * array for two epsilon transitions
      *
      * @param isEnd - information if the state is accepting state
      */
@@ -24,9 +25,20 @@ public class State {
         this.symbolTransition = null;
     }
 
+    /**
+     * Returns states symbol transition if it has one
+     *
+     * @return symbol transition or null
+     */
     public SymbolTransition getSymbolTransition() {
         return symbolTransition;
     }
+
+    /**
+     * Return array size of two with epsilon transitions
+     *
+     * @return array with nulls or one or two epsilon transitions
+     */
 
     public EpsilonTransition[] getEpsilonTransitions() {
         return epsilonTransitions;
@@ -35,7 +47,7 @@ public class State {
     /**
      * Gives the information if the State is accepting state
      *
-     * @return
+     * @return true if state is accepting state
      */
     public boolean getIsEnd() {
         return isEnd;
@@ -44,7 +56,7 @@ public class State {
     /**
      * Changes states isEnd-value to a given value
      *
-     * @param isEnd
+     * @param isEnd - information if state is accepting state or not
      */
     public void setIsEnd(boolean isEnd) {
         this.isEnd = isEnd;
@@ -58,17 +70,24 @@ public class State {
     public boolean hasSymbolTransition() {
         return this.symbolTransition != null;
     }
-/**
- * Way to check if state has epsilon transitions
- * @return true if state has epsilon transitions
- */
+
+    /**
+     * Way to check if state has epsilon transitions
+     *
+     * @return true if state has epsilon transitions
+     */
     public boolean hasEpsilonTransitions() {
         return this.epsilonTransitions[0] != null;
     }
-/**
- * Adds a new transition to state
- * @param transition - can be symbol or epsilon transition
- */
+
+    /**
+     * Adds a new transition to state. If given transition is symbol transition
+     * and state has no epsilon transition, symbol transition is added. If
+     * transition is epsilon transition and state doesn't have two epsilon
+     * transition, new epsilon transition is added to state.
+     *
+     * @param transition - can be symbol or epsilon transition
+     */
     public void addTransition(Transition transition) {
         if (transition.hasSymbol() && !hasEpsilonTransitions()) {
             this.symbolTransition = (SymbolTransition) transition;
@@ -81,6 +100,11 @@ public class State {
         }
     }
 
+    /**
+     * Tells how many epsilon transitions state has
+     *
+     * @return 0, 1 or 2
+     */
     public int numberOfEpsilons() {
         if (this.epsilonTransitions[0] == null) {
             return 0;

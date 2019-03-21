@@ -6,29 +6,22 @@
 package domain;
 
 /**
+ * SymbolNfa is basic building block for more complex Nfa's with symbol
+ * transition.
  *
  * @author strajama
  */
-public class SymbolNfa implements Nfa {
-    
-    private State start;
-    private State end;
-    private char symbol;
+public class SymbolNfa extends NfaClass {
 
+    /**
+     * Creates new SymbolNfa with beginning and end state and symbol transition
+     * between them.
+     *
+     * @param symbol - character that is used to create symbol transition
+     */
     public SymbolNfa(char symbol) {
         this.start = new State(false);
         this.end = new State(true);
-        this.symbol = symbol;
         start.addTransition(new SymbolTransition(start, end, symbol));
     }
-
-    public State getStart() {
-        return start;
-    }
-
-    public State getEnd() {
-        return end;
-    }
-    
-    
 }
