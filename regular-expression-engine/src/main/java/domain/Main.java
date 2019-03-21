@@ -12,30 +12,12 @@ package domain;
 public class Main {
 
     public static void main(String[] args) {
-        String language = "a";
+        String language = "(ab)*|a*";
         Postfix p = new Postfix(language);
         System.out.println("printtaa " + language);
         System.out.println(p.toString());
 
-        String language2 = "a*b";
-        Matcher cm = new Matcher(language2);
-        System.out.println("false " + cm.wordMatches(""));
-        System.out.println("true " + cm.wordMatches("b"));
-        System.out.println("true " + cm.wordMatches("ab"));
-        System.out.println("true " + cm.wordMatches("aaaaaab"));
-        System.out.println("false " + cm.wordMatches("bb"));
+
         
-        String l = "(aba)|(abb)";
-        String test = "(aa)*";
-        
-        Matcher ma = new Matcher(test);
-        System.out.println("true "+ ma.wordMatches(""));
-        System.out.println("true "+ ma.wordMatches("aa"));
-        System.out.println("true "+ ma.wordMatches("aaaa"));
-        System.out.println("false "+ ma.wordMatches("a"));
-        Matcher m = new Matcher(l);
-        System.out.println("false "+m.wordMatches(""));
-        System.out.println("true "+m.wordMatches("aba"));
-        System.out.println("true "+m.wordMatches("abb"));
     }
 }

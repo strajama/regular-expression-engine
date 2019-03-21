@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
+ * State-class has the information if it is a accepting state to the language.
+ * Moving between states happens with transitions. State can have one symbol
+ * transition or at most two epsilon transitions.
  *
  * @author strajama
  */
@@ -18,6 +13,11 @@ public class State {
     private EpsilonTransition[] epsilonTransitions;
     private boolean isEnd;
 
+    /**
+     * Creates new State
+     *
+     * @param isEnd - information if the state is accepting state
+     */
     public State(boolean isEnd) {
         this.isEnd = isEnd;
         this.epsilonTransitions = new EpsilonTransition[2];
@@ -32,22 +32,43 @@ public class State {
         return epsilonTransitions;
     }
 
+    /**
+     * Gives the information if the State is accepting state
+     *
+     * @return
+     */
     public boolean getIsEnd() {
         return isEnd;
     }
 
+    /**
+     * Changes states isEnd-value to a given value
+     *
+     * @param isEnd
+     */
     public void setIsEnd(boolean isEnd) {
         this.isEnd = isEnd;
     }
 
+    /**
+     * Way to check if state has symbol transition
+     *
+     * @return true if state has symbol transition
+     */
     public boolean hasSymbolTransition() {
         return this.symbolTransition != null;
     }
-
+/**
+ * Way to check if state has epsilon transitions
+ * @return true if state has epsilon transitions
+ */
     public boolean hasEpsilonTransitions() {
         return this.epsilonTransitions[0] != null;
     }
-
+/**
+ * Adds a new transition to state
+ * @param transition - can be symbol or epsilon transition
+ */
     public void addTransition(Transition transition) {
         if (transition.hasSymbol() && !hasEpsilonTransitions()) {
             this.symbolTransition = (SymbolTransition) transition;
@@ -59,7 +80,7 @@ public class State {
             }
         }
     }
-    
+
     public int numberOfEpsilons() {
         if (this.epsilonTransitions[0] == null) {
             return 0;

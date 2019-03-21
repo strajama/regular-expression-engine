@@ -47,7 +47,7 @@ public class PostfixTest {
         assertEquals("ab·a·*aba··b·|", postfix3.toString());
         Postfix postfix4 = new Postfix("(ab*(a))*|(a(ba)b)");
         assertEquals("ab*·a·*aba··b·|", postfix4.toString());
-        Postfix postfix5 = new Postfix("(a*b*|c*)*c");
-        assertEquals("a*b*·c*|*c·", postfix5.toString());
+        Postfix postfix5 = new Postfix("(a(ab)*)");
+        assertEquals("aab·*·", postfix5.toString());
     }
 }
