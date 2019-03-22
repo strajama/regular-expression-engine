@@ -23,3 +23,5 @@
 hs_err_pid*
 /REE/.nb-gradle/
 /REE/build/
+/regular-expression-engine/nbproject/
+/regular-expression-engine/target/

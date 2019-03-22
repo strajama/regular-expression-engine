@@ -38,6 +38,7 @@ public class MatcherTest {
         assertTrue(matcher.wordMatches("b"));
         assertFalse(matcher.wordMatches(""));
         assertFalse(matcher.wordMatches("aaa"));
+        assertFalse(matcher.wordMatches("a"));
     }
 
     @Test

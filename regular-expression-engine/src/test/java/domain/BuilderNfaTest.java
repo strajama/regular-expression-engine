@@ -26,6 +26,8 @@ public class BuilderNfaTest {
         assertFalse(builder.getEnd().hasEpsilonTransitions());
         assertEquals(1, builder.getStart().numberOfEpsilons());
         assertEquals(builder.getEnd(), builder.getStart().getEpsilonTransitions()[0].getTo());
+        assertTrue(builder.search(""));
+        assertFalse(builder.search("a"));
     }
 
     @Test
@@ -36,6 +38,9 @@ public class BuilderNfaTest {
         assertTrue(builder.getStart().hasSymbolTransition());
         assertFalse(builder.getEnd().hasSymbolTransition());
         assertEquals('a', builder.getStart().getSymbolTransition().getSymbol());
+        assertTrue(builder.search("a"));
+        assertFalse(builder.search("b"));
+        assertFalse(builder.search("aa"));
     }
 
     @Test
@@ -47,6 +52,11 @@ public class BuilderNfaTest {
         assertEquals(2, builder.getStart().numberOfEpsilons());
         assertEquals(builder.getEnd(), builder.getStart().getEpsilonTransitions()[0].getTo());
         assertEquals('a', builder.getStart().getEpsilonTransitions()[1].getTo().getSymbolTransition().getSymbol());
+        assertFalse(builder.search("b"));
+        assertTrue(builder.search(""));
+        assertTrue(builder.search("a"));
+        assertTrue(builder.search("aa"));
+        assertTrue(builder.search("aaaaaa"));
     }
 
     @Test
@@ -58,6 +68,11 @@ public class BuilderNfaTest {
         assertEquals(2, builder.getStart().numberOfEpsilons());
         assertEquals('a', builder.getStart().getEpsilonTransitions()[0].getTo().getSymbolTransition().getSymbol());
         assertEquals('b', builder.getStart().getEpsilonTransitions()[1].getTo().getSymbolTransition().getSymbol());
+        assertTrue(builder.search("b"));
+        assertFalse(builder.search(""));
+        assertTrue(builder.search("a"));
+        assertFalse(builder.search("aa"));
+        assertFalse(builder.search("ab"));
     }
 
     @Test
@@ -67,5 +82,9 @@ public class BuilderNfaTest {
         assertFalse(builder.getStart().getIsEnd());
         assertTrue(builder.getStart().hasSymbolTransition());
         assertEquals('a', builder.getStart().getSymbolTransition().getSymbol());
+        assertFalse(builder.search("b"));
+        assertFalse(builder.search(""));
+        assertFalse(builder.search("a"));
+        assertTrue(builder.search("ab"));
     }
 }

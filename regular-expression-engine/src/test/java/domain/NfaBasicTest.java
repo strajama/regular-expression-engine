@@ -104,4 +104,11 @@ public class NfaBasicTest {
         assertEquals(eNfa.getStart(), concat.getStart());
         assertEquals(sNfa.getEnd(), concat.getEnd());
     }
+    
+    @Test
+    public void nfaSearch() {
+        assertTrue(sNfa.search("a"));
+        assertFalse(sNfa.search("b"));
+        assertFalse(eNfa.search("a"));
+    }
 }
