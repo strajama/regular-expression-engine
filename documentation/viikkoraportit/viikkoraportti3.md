@@ -14,4 +14,4 @@ Omia tietorakenteita Javan valmiiden tilalla.
 ## Käytetty aikaa
 Useita ei-laskettuja tunteja sekalaiseen googlettamiseen ja lukemiseen.
 
-Koodin kirjoittamiseen, testeihin ja javadocseihin mennyt noin 1/2 tuntia.
+Koodin kirjoittamiseen, testeihin ja javadocseihin mennyt noin kolme tuntia.
