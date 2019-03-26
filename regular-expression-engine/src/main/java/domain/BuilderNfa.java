@@ -1,6 +1,6 @@
 package domain;
 
-import java.util.Stack;
+import datastructure.NfaStack;
 
 /**
  * BuilderNfa constructs new Nfa from one or many Nfas.
@@ -26,7 +26,7 @@ public class BuilderNfa extends NfaClass {
             this.start = nfa.getStart();
             this.end = nfa.getEnd();
         } else {
-            Stack<Nfa> stack = new Stack();
+            NfaStack stack = new NfaStack();
 
             for (int i = 0; i < postfix.length(); i++) {
                 char token = postfix.charAt(i);

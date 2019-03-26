@@ -5,6 +5,8 @@
  */
 package datastructure;
 
+import domain.EpsilonNfa;
+import domain.Nfa;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -34,6 +36,33 @@ public class StackTest {
             assertFalse(stack.empty());
         }
         char b = 'b';
+        stack.push(b);
+        assertTrue(b == stack.pop());
+        for (int j = 1; j < 11; j++) {
+            assertTrue(a == stack.pop());
+            assertFalse(stack.empty());
+        }
+        assertTrue(a == stack.pop());
+        assertTrue(stack.empty());
+    }
+
+    @Test
+    public void nfaStack() {
+        NfaStack stack = new NfaStack();
+        assertTrue(stack.empty());
+        assertEquals(null, stack.peek());
+        assertEquals(null, stack.pop());
+        Nfa a = new EpsilonNfa();
+        stack.push(a);
+        assertFalse(stack.empty());
+        assertTrue(a == stack.peek());
+        assertTrue(a == stack.pop());
+        assertTrue(stack.empty());
+        for (int i = 1; i < 12; i++) {
+            stack.push(a);
+            assertFalse(stack.empty());
+        }
+        Nfa b = new EpsilonNfa();
         stack.push(b);
         assertTrue(b == stack.pop());
         for (int j = 1; j < 11; j++) {

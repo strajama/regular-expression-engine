@@ -40,7 +40,7 @@ public class CharStack implements Stack<Character> {
      */
     @Override
     public Character pop() {
-        if (empty()) {
+        if (this.empty()) {
             return null;
         }
         this.top--;
