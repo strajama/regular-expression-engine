@@ -1,7 +1,8 @@
 package domain;
 
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
+import datastructure.List;
 
 /**
  * NfaClass is abstract class to store Nfas common methods.
@@ -38,22 +39,22 @@ public abstract class NfaClass implements Nfa {
      * @return true if word belongs to Nfa's language, otherwise false
      */
     public boolean search(String word) {
-        List<State> currentStates = new ArrayList<>();
-        currentStates = addNextState(this.getStart(), currentStates, new ArrayList<>());
+        List currentStates = new List();
+        currentStates = addNextState(this.getStart(), currentStates, new List());
 
         for (int i = 0; i < word.length(); i++) {
             char symbol = word.charAt(i);
-            List<State> nextStates = new ArrayList<>();
+            List nextStates = new List();
 
-            for (State state : currentStates) {
+            for (State state : currentStates.getStates()) {
                 if (state.hasSymbolTransition() && state.getSymbolTransition().getSymbol() == symbol) {
                     State nextState = state.getSymbolTransition().getTo();
-                    nextStates = addNextState(nextState, nextStates, new ArrayList<>());
+                    nextStates = addNextState(nextState, nextStates, new List());
                 }
             }
             currentStates = nextStates;
         }
-        for (State state : currentStates) {
+        for (State state : currentStates.getStates()) {
             if (state.getIsEnd()) {
                 return true;
             }
@@ -70,7 +71,7 @@ public abstract class NfaClass implements Nfa {
      * @param visited is list of visited states to prevent infinite looping
      * @return list of states that can be reached
      */
-    private List<State> addNextState(State state, List<State> nextStates, List<State> visited) {
+    private List addNextState(State state, List nextStates, List visited) {
         if (state.hasEpsilonTransitions()) {
             for (EpsilonTransition etr : state.getEpsilonTransitions()) {
                 if (etr != null && !visited.contains(etr.getTo())) {
