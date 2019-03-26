@@ -14,16 +14,16 @@ import static org.junit.Assert.*;
  *
  * @author strajama
  */
-public class ListTest {
+public class StateListTest {
 
-    List list;
+    StateList list;
 
-    public ListTest() {
+    public StateListTest() {
     }
 
     @Before
     public void setUp() {
-        list = new List();
+        list = new StateList();
     }
 
     @Test

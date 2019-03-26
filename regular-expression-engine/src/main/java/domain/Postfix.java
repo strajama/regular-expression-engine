@@ -1,6 +1,7 @@
 package domain;
 
-import java.util.Stack;
+//import java.util.Stack;
+import datastructure.CharStack;
 
 /**
  * Postfix-class is used to change given language from infix to postfix form and
@@ -65,7 +66,7 @@ public class Postfix {
      */
     private void toPostfix() {
         String output = "";
-        Stack<Character> operatorStack = new Stack();
+        CharStack operatorStack = new CharStack();
 
         for (int i = 0; i < this.postfixString.length(); i++) {
             char token = this.postfixString.charAt(i);

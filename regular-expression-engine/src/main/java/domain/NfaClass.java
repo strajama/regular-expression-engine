@@ -2,7 +2,7 @@ package domain;
 
 //import java.util.ArrayList;
 //import java.util.List;
-import datastructure.List;
+import datastructure.StateList;
 
 /**
  * NfaClass is abstract class to store Nfas common methods.
@@ -39,17 +39,17 @@ public abstract class NfaClass implements Nfa {
      * @return true if word belongs to Nfa's language, otherwise false
      */
     public boolean search(String word) {
-        List currentStates = new List();
-        currentStates = addNextState(this.getStart(), currentStates, new List());
+        StateList currentStates = new StateList();
+        currentStates = addNextState(this.getStart(), currentStates, new StateList());
 
         for (int i = 0; i < word.length(); i++) {
             char symbol = word.charAt(i);
-            List nextStates = new List();
+            StateList nextStates = new StateList();
 
             for (State state : currentStates.getStates()) {
                 if (state.hasSymbolTransition() && state.getSymbolTransition().getSymbol() == symbol) {
                     State nextState = state.getSymbolTransition().getTo();
-                    nextStates = addNextState(nextState, nextStates, new List());
+                    nextStates = addNextState(nextState, nextStates, new StateList());
                 }
             }
             currentStates = nextStates;
@@ -71,7 +71,7 @@ public abstract class NfaClass implements Nfa {
      * @param visited is list of visited states to prevent infinite looping
      * @return list of states that can be reached
      */
-    private List addNextState(State state, List nextStates, List visited) {
+    private StateList addNextState(State state, StateList nextStates, StateList visited) {
         if (state.hasEpsilonTransitions()) {
             for (EpsilonTransition etr : state.getEpsilonTransitions()) {
                 if (etr != null && !visited.contains(etr.getTo())) {

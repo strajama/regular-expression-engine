@@ -7,14 +7,14 @@ import domain.State;
  *
  * @author strajama
  */
-public class List {
+public class StateList {
 
     private State[] states;
 
     /**
      * Creates new List with array of the size 0
      */
-    public List() {
+    public StateList() {
         this.states = new State[0];
     }
 
