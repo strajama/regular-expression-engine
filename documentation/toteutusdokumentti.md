@@ -18,4 +18,6 @@ ConcatNfa-luokalla voi tehdä kahdelle Nfa:lle konkatenaation niin, että tuloks
 
 UnionNfa-luokalla voi tehdä kahdelle Nfa:lle yhdisteen niin, että tuloksena on Nfa, joka tunnnistaa jomman kumman sille annetun Nfa:n kielen sanan. Esim. jos tehdään UnionNfa taas kielen "a" ja kielen "b" tunnistavista Nfa:ista, niin UnionNfa tunnistaa kielen "a|b", johon kuuluu sanat "a" ja "b".
 
-ClosureNfa-luokalla voi toteuttaa Nfa:lle ns. tähtioperaation eli ClosureNfa 
+ClosureNfa-luokalla voi toteuttaa Nfa:lle ns. tähtioperaation eli ClosureNfa tunnistaa kielen, jossa esiintyy sille annetun Nfa:n kielen sanoja nollasta moneen kertaa. Esim. jos tehdään ClosureNfa kielen "a" tunnistavasta Nfa:sta, niin ClosureNfa tunnistaa kielen "a*", johon kuuluu "", "a", "aa", "aaa", jne.
+
+BuilderNfa-luokalle annetaan postfix-muodossa kieli ja se rakentaa kieltä tulkiten Nfa:n, joka tunnistaa kyseiseen kieleen kuuluvat sanat.
