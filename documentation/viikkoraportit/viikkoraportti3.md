@@ -18,6 +18,8 @@ En edelleenkään tiedä minkälainen käyttöliittymä olisi hyvä.
 
 ## Mitä teen seuraavaksi?
 
+Varmaan käyttöliittymän.
+
 ## Käytetty aikaa
 
 Useita ei-laskettuja tunteja sekalaiseen googlettamiseen ja lukemiseen.
