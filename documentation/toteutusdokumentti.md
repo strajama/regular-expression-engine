@@ -16,3 +16,6 @@ Yksinkertaisimmat Nfa:t ovat EpsilonNfa ja SymbolNfa. Molemmissa on yksi alku- j
 
 ConcatNfa-luokalla voi tehdä kahdelle Nfa:lle konkatenaation niin, että tuloksena on Nfa, joka tunnistaa sellaisen kielen sanan, jonka alkuosa toteuttaa ensimmäisenä Nfa:n kielen ja sen perään toisen Nfa:n kielen. Esim. jos tehdään ConcatNfa kahdesta Nfa:sta, joista toinen tunnistaa kielen "a" ja toinen kielen "b", niin ConcatNfa tunnistaa kielen "a·b", johon käytännössä kuuluu vain sana "ab".
 
+UnionNfa-luokalla voi tehdä kahdelle Nfa:lle yhdisteen niin, että tuloksena on Nfa, joka tunnnistaa jomman kumman sille annetun Nfa:n kielen sanan. Esim. jos tehdään UnionNfa taas kielen "a" ja kielen "b" tunnistavista Nfa:ista, niin UnionNfa tunnistaa kielen "a|b", johon kuuluu sanat "a" ja "b".
+
+ClosureNfa-luokalla voi toteuttaa Nfa:lle ns. tähtioperaation eli ClosureNfa 
