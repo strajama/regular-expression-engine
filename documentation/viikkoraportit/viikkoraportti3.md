@@ -26,4 +26,4 @@ Useita ei-laskettuja tunteja sekalaiseen googlettamiseen ja lukemiseen.
 
 Omien tietorakenteiden kirjoittamiseen, testeihin ja javadocseihin mennyt noin kolme tuntia, toteutusdokumenttiin puolitoista tuntia.
 
-Plusmerkin käsittelevä koodi, sen testaus ja javadocsit noin kaksi tuntia.
+Plusmerkin käsittelevä koodi, sen testaus ja javadocsit noin viisi tuntia.
