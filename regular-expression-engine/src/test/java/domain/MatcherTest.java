@@ -50,8 +50,8 @@ public class MatcherTest {
         assertFalse(matcher.wordMatches(""));
         assertFalse(matcher.wordMatches("a"));
     }
-    
-        @Test
+
+    @Test
     public void fourthMatcher() {
         Matcher matcher = new Matcher("(aa)*");
         assertTrue(matcher.wordMatches(""));
@@ -60,5 +60,29 @@ public class MatcherTest {
         assertFalse(matcher.wordMatches("a"));
         assertFalse(matcher.wordMatches("aaa"));
         assertFalse(matcher.wordMatches("b"));
+    }
+
+    @Test
+    public void fifthMatcher() {
+        Matcher matcher = new Matcher("(ab)+");
+        assertFalse(matcher.wordMatches(""));
+        assertTrue(matcher.wordMatches("ab"));
+        assertTrue(matcher.wordMatches("abababab"));
+        assertFalse(matcher.wordMatches("a"));
+        assertFalse(matcher.wordMatches("b"));
+    }
+    
+    @Test
+    public void sixthMatcher() {
+        Matcher matcher = new Matcher("(a(bc)*)+");
+        assertFalse(matcher.wordMatches(""));
+        assertTrue(matcher.wordMatches("a"));
+        assertTrue(matcher.wordMatches("abc"));
+        assertTrue(matcher.wordMatches("aaaa"));
+        assertTrue(matcher.wordMatches("abcbcbc"));
+        assertTrue(matcher.wordMatches("aaaaabcaaa"));
+        assertFalse(matcher.wordMatches("bc"));
+        assertFalse(matcher.wordMatches("ab"));
+        assertFalse(matcher.wordMatches("ac"));
     }
 }

@@ -20,7 +20,7 @@ public class Postfix {
      */
     public Postfix(String expression) {
         this.postfixString = "";
-        insertConcat(expression);
+        insertConcat(replacePlus(expression));
         toPostfix();
     }
 
@@ -32,6 +32,46 @@ public class Postfix {
     @Override
     public String toString() {
         return this.postfixString;
+    }
+
+    /**
+     * Replaces plus-character with repeated symbol/s and asterisk
+     *
+     * @param expression that is given when new Postfix is created
+     */
+    private String replacePlus(String expression) {
+        String newExpression = "";
+        String save = "";
+        boolean useSave = false;
+
+        for (int i = 0; i < expression.length(); i++) {
+            char token = expression.charAt(i);
+            if (token != '+') {
+                newExpression += token;
+            }
+            if (token == '(') {
+                useSave = true;
+            }
+            if (useSave) {
+                save += token;
+            }
+            if (i < expression.length() - 1) {
+                char lookahead = expression.charAt(i + 1);
+                if (lookahead == '+') {
+                    newExpression += '*';
+                    if (save.length() != 0) {
+                        newExpression += save;
+                    } else {
+                        newExpression += token;
+                    }                    
+                    useSave = false;
+                    save = "";
+                }
+            }
+
+        }
+
+        return newExpression;
     }
 
     /**

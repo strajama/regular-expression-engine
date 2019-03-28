@@ -32,6 +32,16 @@ public class PostfixTest {
     }
 
     @Test
+    public void replacePlus() {
+        Postfix p1 = new Postfix("a+");
+        assertEquals("a*a·", p1.toString());
+        Postfix p2 = new Postfix("ab+");
+        assertEquals("ab*·b·", p2.toString());
+        Postfix p3 = new Postfix("(ab)+");
+        assertEquals("ab·*ab··", p3.toString());
+    }
+
+    @Test
     public void insertConcatPostfix() {
         Postfix postfix = new Postfix("ab");
         assertEquals("ab·", postfix.toString());

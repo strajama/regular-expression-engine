@@ -9,7 +9,7 @@ package domain;
 public class Main {
 
     public static void main(String[] args) {
-        String language = "(ab)*|a*";
+        String language = "a+";
         Postfix p = new Postfix(language);
         System.out.println("printtaa " + language);
         System.out.println(p.toString());
