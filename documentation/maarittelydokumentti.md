@@ -12,6 +12,12 @@ Ratkaistava ongelma on säännöllisten lausekkeiden tulkki ja lähden ratkomaan
 
 Ohjelma saa syötteenä säännöllisen lausekkeen (regular expression) ja tekstiä ja palauttaa tiedon ovatko nämä kaksi yhteensopivat (match).
 
+### Ohjelman tunnistamat merkit
+* "*" tarkoittaa, että jokin asia toistuu 0 - monta kertaa
+* "|" tarkoittaa, että jompikumpi ehdoista on voimassa
+* "+" tarkoittaa, että jokin asia toistuu 1 - monta kertaa
+* ohjelma osaa huomioida sulut
+
 ## Tavoitteena olevat aika- ja tilavaativuudet (m.m. O-analyysit)
 
 Thompsonin algoritmit aikavaativuus on O(nm) ja tilavaativuus O(m), jossa n on annetun, läpikäytävän tekstin pituus ja m säännöllisen lausekkeen pituus, [lähde](https://arxiv.org/pdf/cs/0606116.pdf). Tavoitteena on päästä mahdollisimman lähelle tätä.
