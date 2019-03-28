@@ -1,17 +1,25 @@
 # Viikko 3
+
 ## Mitä olen tehnyt tällä viikolla?
-Omia tietorakenteita ja niille testejä ja javadocsit.
+
+Omia tietorakenteita ja niille testejä ja javadocsit, aloittanut toteutusdokumentissa ohjelman yleiskuvailun.
 
 ## Miten ohjelma on edistynyt?
+
 Omia tietorakenteita Javan valmiiden tilalla.
 
 ## Mitä opin tällä viikolla / tänään?
 
+Omia tietorakenteita toteutettaessa pitää tehdä valintoja sen suhteen, että käyttääkö niihin mielummin muistia vai laskentatehoa ja hyvän valinnan tekeminen on vaikeaa.
+
 ## Mikä jäi epäselväksi tai tuottanut vaikeuksia? Vastaa tähän kohtaan rehellisesti, koska saat tarvittaessa apua tämän kohdan perusteella.
+
+En edelleenkään tiedä minkälainen käyttöliittymä olisi hyvä.
 
 ## Mitä teen seuraavaksi?
 
 ## Käytetty aikaa
+
 Useita ei-laskettuja tunteja sekalaiseen googlettamiseen ja lukemiseen.
 
-Koodin kirjoittamiseen, testeihin ja javadocseihin mennyt noin kolme tuntia.
+Omien tietorakenteiden kirjoittamiseen, testeihin ja javadocseihin mennyt noin kolme tuntia, toteutusdokumenttiin puolitoista tuntia.
