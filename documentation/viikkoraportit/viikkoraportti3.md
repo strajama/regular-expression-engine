@@ -14,7 +14,7 @@ Omia tietorakenteita toteutettaessa pitää tehdä valintoja sen suhteen, että 
 
 ## Mikä jäi epäselväksi tai tuottanut vaikeuksia? Vastaa tähän kohtaan rehellisesti, koska saat tarvittaessa apua tämän kohdan perusteella.
 
-En edelleenkään tiedä minkälainen käyttöliittymä olisi hyvä enkä ole varma miten omat tietorakenteet kannattaa optimoida ohjelmassa.
+En ole varma miten omat tietorakenteet kannattaa optimoida ohjelmassa, mutta eiköhän se selviä.
 
 ## Mitä teen seuraavaksi?
 
