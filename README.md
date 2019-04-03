@@ -10,3 +10,5 @@
 * [viikkoraportti 2](https://github.com/strajama/regular-expression-engine/blob/master/documentation/viikkoraportit/viikkoraportti2.md)
 
 * [viikkoraportti 3](https://github.com/strajama/regular-expression-engine/blob/master/documentation/viikkoraportit/viikkoraportti3.md)
+
+* [viikkoraportti 4](https://github.com/strajama/regular-expression-engine/blob/master/documentation/viikkoraportit/viikkoraportti4.md)
