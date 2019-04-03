@@ -48,10 +48,12 @@ public class App {
                     String infix = io.readLine(Order.POSTFIX.getPrinting());
                     Postfix postfix = new Postfix(infix);
                     System.out.println("Expression is " + postfix.toString());
+                    break;
 
                 case "quit":
                     System.out.println("Thank you for using regular expression engine!");
                     quit = true;
+                    break;
             }
         }
     }
