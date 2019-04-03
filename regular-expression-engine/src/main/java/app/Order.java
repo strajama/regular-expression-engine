@@ -6,7 +6,8 @@ package app;
  * @author strajama
  */
 public enum Order {
-    COMMANDS("Choose command: matcher, quit "),
+    COMMANDS("Choose command: postfix, matcher, quit "),
+    POSTFIX("Give expression in infix you want to see as postfix "),
     WORD("Give a word to check "),
     LANGUAGE("Give language ");
 

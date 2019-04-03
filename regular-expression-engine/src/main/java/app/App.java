@@ -1,6 +1,7 @@
 package app;
 
 import domain.Matcher;
+import domain.Postfix;
 
 /**
  * App controls application
@@ -43,6 +44,11 @@ public class App {
                         System.out.println("word doesn't belong to language");
                     }
                     break;
+                case "postfix":
+                    String infix = io.readLine(Order.POSTFIX.getPrinting());
+                    Postfix postfix = new Postfix(infix);
+                    System.out.println("Expression is " + postfix.toString());
+
                 case "quit":
                     System.out.println("Thank you for using regular expression engine!");
                     quit = true;
