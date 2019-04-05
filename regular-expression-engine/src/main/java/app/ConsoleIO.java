@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * ConsoleIO implement IO-interface and is given to App when application is
- * used.
+ * used in console.
  *
  * @author strajama
  */

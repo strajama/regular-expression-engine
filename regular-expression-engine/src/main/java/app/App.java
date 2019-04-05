@@ -41,9 +41,7 @@ public class App {
                     do {
                         String word = io.readLine(Order.WORD.getPrinting());
                         if (matcher.wordMatches(word)) {
-                            System.out.println("word belongs to language");
-                        } else {
-                            System.out.println("word doesn't belong to language");
+                            System.out.println(word);
                         }
                         another = io.readLine(Order.ANOTHER.getPrinting());
                     } while (!another.equals("no"));
