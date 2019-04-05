@@ -37,14 +37,15 @@ public class App {
                 case "matcher":
                     String language = io.readLine(Order.LANGUAGE.getPrinting());
                     Matcher matcher = new Matcher(language);
-                    String another = "";
+                    String word = "";
                     do {
-                        String word = io.readLine(Order.WORD.getPrinting());
+                        word = io.readLine(Order.WORD.getPrinting());
                         if (matcher.wordMatches(word)) {
                             System.out.println(word);
+                        } else {
+                            System.out.println("");
                         }
-                        another = io.readLine(Order.ANOTHER.getPrinting());
-                    } while (!another.equals("no"));
+                    } while (!word.equals("/no"));
                     break;
                 case "postfix":
                     String infix = io.readLine(Order.POSTFIX.getPrinting());

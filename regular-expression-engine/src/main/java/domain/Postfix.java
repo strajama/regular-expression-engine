@@ -35,7 +35,7 @@ public class Postfix {
     }
 
     /**
-     * Replaces plus-character with repeated symbol/s and asterisk
+     * Replaces plus-character with asterisk and repeated symbol/s
      *
      * @param expression that is given when new Postfix is created
      */

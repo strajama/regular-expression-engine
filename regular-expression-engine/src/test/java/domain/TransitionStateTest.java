@@ -72,10 +72,19 @@ public class TransitionStateTest {
         assertTrue(startE.getEpsilonTransitions()[0] == et);
         assertEquals(startE, et.getFrom());
         assertEquals(endE, et.getTo());
-        //EpsilonTransition et2 = new EpsilonTransition(startS, endS);
         startE.addTransition(et);
         assertEquals(2, startE.numberOfEpsilons());
         startE.addTransition(et);
         assertEquals(2, startE.numberOfEpsilons());
+    }
+    
+    @Test
+    public void statesDotSymbolTransition() {
+        State state = new State(false);
+        SymbolTransition dot = new SymbolTransition(state, endS, '.');
+        state.addTransition(dot);
+        assertTrue(state.acceptsSymbol('.'));
+        assertTrue(state.acceptsSymbol('a'));
+        assertTrue(state.acceptsSymbol('b'));
     }
 }

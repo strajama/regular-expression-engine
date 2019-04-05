@@ -42,7 +42,7 @@
                 <configuration>
                     <excludes>
                         <exclude>domain/Operator*</exclude>
-                        <exclude>domain/Main*</exclude>
+                        <exclude>app/*</exclude>
                     </excludes>
                 </configuration>  
                 <executions>

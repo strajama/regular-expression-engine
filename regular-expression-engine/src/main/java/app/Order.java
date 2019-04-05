@@ -8,8 +8,7 @@ package app;
 public enum Order {
     COMMANDS("Choose command: postfix, matcher, quit "),
     POSTFIX("Give expression in infix you want to see as postfix "),
-    WORD("Give a new word to check "),
-    ANOTHER("If you don't want to check new word, type 'no'. Otherwise press any button. "),
+    WORD("Give a new word to check or write '/no'"),
     LANGUAGE("Give language ");
 
     private String printing;
