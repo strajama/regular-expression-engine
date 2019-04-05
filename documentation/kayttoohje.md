@@ -1,6 +1,7 @@
 # Käyttöohje
 
-Ohjelmaa voi käyttää joko komentoriville sanoja kirjoittamalla tai antamalla sille valmis tekstitiedosto. Oletuksena ohjelma avautuu konsoliversion. 
+Ohjelmaa voi käyttää joko komentoriville sanoja kirjoittamalla tai antamalla sille valmis tekstitiedosto. Oletuksena ohjelma avautuu konsoliversion, koska tekstitiedostoversio on tehty suorituskykytestausta varten.
+
 ## Ohjelman ConsoleIO:n käyttäminen
 
 Ohjelma toimii komentoriville kirjoitettavilla käskyillä. Aluksi pitää valita jokin kolmesta: postfix, matcher tai quit.
