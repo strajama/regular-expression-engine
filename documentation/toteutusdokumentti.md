@@ -30,6 +30,18 @@ Postfix-luokka käsittelee ohjelmalle annetun kielen niin, että siitä voidaan 
 
 Postfix-luokka kommunikoi muiden luokkien kanssa vain palauttamalla kielen muokatussa muodossa toString-metodilla.
 
+### BuilderNfa:n rakentaminen
+
+BuilderNfa-luokan konstruktori käy jokaisen merkin (character) läpi postfix-muodossa syötteenä saamastaan kielestä ja muodostaa siitä yhden ison Nfa-olion.
+
+* Alussa luodaan EpsilonNfa ja jos parametrina on saatu tyhjä merkkijono, niin se jää lopulliseksi Nfa:ksi.
+* Luodaan NfaStack, jonne laitetaan Nfa-rajapinnan toteuttavia olioita.
+* Käydään parametrina saatua merkkijonoa läpi merkki kerrallaan. Jos kyseessä on jokin Operator-enumin tunnistama operaatio, niin toimitaan sen mukaan, muuten luodaan uusi SymbolNfa kyseisestä merkistä ja pannaan pinoon. 
+  * Operaatioista '*' ottaa pinosta päällimmäisen Nfa:n ja tekee siitä uuden ClosureNfa:n, jonka laittaa takaisin pinoon. 
+  * Operaatioista '|' ottaa pinosta kaksi Nfa:ta ja laittaa tilalle uuden UnionNfa:n pinoon niin, että jälkimmäisenä pinosta nostettu Nfa on UnionNfa:n ensimmäinen parametri ja ensimmäisenä nostettu toinen parametri. 
+  * Operaatioista '·' ottaa pinosta kaksi Nfa:ta ja laittaa tilalle samoilla periaatteilla uuden ConcatNfa:n pinoon.
+* Kun koko merkkijono on käyty läpi, niin pinosta otetaan sinne viimeisenä jäänyt Nfa ja määritellään sen olevan BuilderNfa.
+
 ### Kaikki yhteen
 
 Kaikki kootaan yhteen Matcher-luokalla, joka saa konstruktorin syötteenä kielen String-muodossa. Matcher muuntaa sen sopivaan muotoon tekemällä siitä uuden Postfix-olion, jonka metodia toString-kutsuu ja sen jälkeen antaa sen parametrina uudelle BuilderNfa:lle. Tämän jälkeen Matcher-oliolle voi antaa sanoja wordMatches-metodille, joka kertoo kuuluuko kyseinen sana Matcherin kieleen vai ei.
