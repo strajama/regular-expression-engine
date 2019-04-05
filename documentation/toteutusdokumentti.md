@@ -25,3 +25,15 @@ BuilderNfa-luokalle annetaan [postfix-muodossa](http://www.cs.man.ac.uk/~pjj/cs2
 ### Postfix
 
 Ohjelmassa muutetaan infix-muodossa annettu kieli postfix-muotoon, jotta operaatiot voidaan toteuttaa helposti niiden [presedenssin](http://mathworld.wolfram.com/Precedence.html) (precedence) mukaan.
+
+Postfix-luokka käsittelee ohjelmalle annetun kielen niin, että siitä voidaan luoda kielen sanat tunnistava BuilderNfa. Aluksi se muuntaa '+'-merkin korvaamalla sen '*'-merkillä ja sen perään merkin tai merkkijonon, joka halutaan esittää vähintään kerran. Tämän jälkeen se lisää kieleen konkatenaatio-operaation tunnistaman merkin '·' ja tämän jälkeen muuntaa kaiken infix-muodosta postfix-muotoon.
+
+Postfix-luokka kommunikoi muiden luokkien kanssa vain palauttamalla kielen muokatussa muodossa toString-metodilla.
+
+### Kaikki yhteen
+
+Kaikki kootaan yhteen Matcher-luokalla, joka saa konstruktorin syötteenä kielen String-muodossa. Matcher muuntaa sen sopivaan muotoon tekemällä siitä uuden Postfix-olion, jonka metodia toString-kutsuu ja sen jälkeen antaa sen parametrina uudelle BuilderNfa:lle. Tämän jälkeen Matcher-oliolle voi antaa sanoja wordMatches-metodille, joka kertoo kuuluuko kyseinen sana Matcherin kieleen vai ei.
+
+## Työn mahdolliset puutteet ja parannusehdotukset
+
+Ohjelman luokkarakenne on vielä hakusessa. En ole varma ovatko erilliset Postfix- ja Matcher-luokat kovin hyvä idea, mutta niiden yhdistäminen loisi monimutkaisen megaluokan, jota ei olisi helppo lukea.
