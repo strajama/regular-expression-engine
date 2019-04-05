@@ -2,7 +2,13 @@
 
 ## Mitä algoritmeja ja tietorakenteita toteutat työssäsi
 
-Toteutan Thompsonin [algoritmin](https://en.wikipedia.org/wiki/Thompson%27s_construction). Sen toteutuksessa tarvitaan ainakin pino ja jonkinlainen linkitetty lista.
+Toteutan Thompsonin [algoritmin](https://en.wikipedia.org/wiki/Thompson%27s_construction). Sen toteutuksessa tarvitaan pino ja lista.
+
+### Omat tietorakenteet
+
+Stack-rajapinta toteuttaa pinon ja tuntee metodit push, pop, peek ja empty. Sen toteuttaa kaksi eri luokkaa: CharStack joka käsittelee merkkejä ja NfaStack, joka käsittelee Nfa-olioita.
+
+StateList toteuttaa lista-toiminnallisuuden State-olioille. Se tuntee metodit add, contains ja getStates.
 
 ## Mitä ongelmaa ratkaiset ja miksi valitsit kyseiset algoritmit/tietorakenteet
 
@@ -10,13 +16,13 @@ Ratkaistava ongelma on säännöllisten lausekkeiden tulkki ja lähden ratkomaan
 
 ## Mitä syötteitä ohjelma saa ja miten näitä käytetään
 
-Ohjelma saa syötteenä säännöllisen lausekkeen (regular expression) ja tekstiä ja palauttaa tiedon ovatko nämä kaksi yhteensopivat (match).
+Ohjelma saa syötteenä säännöllisen lausekkeen (regular expression) ja sanan tai sanoja ja tulostaa sanan/sanat, jotka säännöllinen lauseke tunnistaa.
 
 ### Ohjelman tunnistamat merkit
 * "*" tarkoittaa, että jokin asia toistuu 0 - monta kertaa
 * "|" tarkoittaa, että jompikumpi ehdoista on voimassa
 * "+" tarkoittaa, että jokin asia toistuu 1 - monta kertaa
-* ohjelma osaa huomioida sulut
+* ohjelma osaa huomioida sulut () ja käsitellä niiden sisällön ennen muita.
 
 ## Tavoitteena olevat aika- ja tilavaativuudet (m.m. O-analyysit)
 
