@@ -2,7 +2,7 @@
 
 ## Mitä olen tehnyt tällä viikolla?
 
-Käyttöliittymää
+Käyttöliittymää, koodin hiomista
 
 ## Miten ohjelma on edistynyt?
 
@@ -14,7 +14,6 @@ Ohjelmalla on käyttöliittymä
 
 ## Mikä jäi epäselväksi tai tuottanut vaikeuksia? Vastaa tähän kohtaan rehellisesti, koska saat tarvittaessa apua tämän kohdan perusteella.
 
-Pitääkö käyttöliittymälle tehdä yksikkötestejä?
 
 ## Mitä teen seuraavaksi?
 
