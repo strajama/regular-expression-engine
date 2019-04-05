@@ -21,3 +21,7 @@ UnionNfa-luokalla voi tehdä kahdelle Nfa:lle yhdisteen niin, että tuloksena on
 ClosureNfa-luokalla voi toteuttaa Nfa:lle ns. tähtioperaation eli ClosureNfa tunnistaa kielen, jossa esiintyy sille annetun Nfa:n kielen sanoja nollasta moneen kertaa. Esim. jos tehdään ClosureNfa kielen "a" tunnistavasta Nfa:sta, niin ClosureNfa tunnistaa kielen "a*", johon kuuluu "", "a", "aa", "aaa", jne.
 
 BuilderNfa-luokalle annetaan [postfix-muodossa](http://www.cs.man.ac.uk/~pjj/cs212/fix.html) kieli ja se rakentaa kieltä tulkiten Nfa:n, joka tunnistaa kyseiseen kieleen kuuluvat sanat.
+
+### Postfix
+
+Ohjelmassa muutetaan infix-muodossa annettu kieli postfix-muotoon, jotta operaatiot voidaan toteuttaa helposti niiden [presedenssin](http://mathworld.wolfram.com/Precedence.html) (precedence) mukaan.
