@@ -2,7 +2,7 @@
 
 ## Mitä algoritmeja ja tietorakenteita toteutat työssäsi
 
-Toteutan Thompsonin [algoritmin](https://en.wikipedia.org/wiki/Thompson%27s_construction). Sen toteutuksessa tarvitaan pino ja lista.
+Toteutan Thompsonin [algoritmin](https://en.wikipedia.org/wiki/Thompson%27s_construction), jossa luodaan epädeterministinen äärellinen automaatti. Sen toteutuksessa tarvitaan pino ja lista. Algoritmin ymmärtämisessä on hyötyä, jos on tutustunut Laskennan mallit -kurssin sisältöön.
 
 ### Omat tietorakenteet
 
