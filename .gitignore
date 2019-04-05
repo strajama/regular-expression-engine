@@ -24,4 +24,4 @@ hs_err_pid*
 /regular-expression-engine/nbproject/*
 /regular-expression-engine/target/*
 
-!//regular-expression-engine/target/site/jacoco/index.html
+!/regular-expression-engine/target/site/jacoco/index.html
