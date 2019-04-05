@@ -4,6 +4,8 @@
 
 [Toteutusdokumentti](https://github.com/strajama/regular-expression-engine/blob/master/documentation/toteutusdokumentti.md)
 
+[Testausdokumentti](https://github.com/strajama/regular-expression-engine/blob/master/documentation/testausdokumentti.md)
+
 ## Viikkoraportit
 * [viikkoraportti 1](https://github.com/strajama/regular-expression-engine/blob/master/documentation/viikkoraportit/viikkoraportti1.md)
 
