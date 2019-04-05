@@ -8,4 +8,20 @@ Ohjelmassa on käytössä JUnitilla tehdyt automaattiset testit itse ohjelmalle 
 
 ## Miten testit voidaan toistaa
 
+### Komentorivi
+
+Testit suoritetaan komennolla
+
+```
+mvn test
+```
+
+Testikattavuusraportti luodaan komennolla
+
+```
+mvn jacoco:report
+```
+
+Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco/index.html_
+
 ## Ohjelman toiminnan empiirisen testauksen tulosten esittäminen graafisessa muodossa.
