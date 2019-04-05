@@ -39,7 +39,6 @@ public class State {
      *
      * @return array with nulls or one or two epsilon transitions
      */
-
     public EpsilonTransition[] getEpsilonTransitions() {
         return epsilonTransitions;
     }
@@ -112,5 +111,23 @@ public class State {
             return 1;
         }
         return 2;
+    }
+
+    /**
+     * Tells if State accepts symbol for transition.
+     *
+     * @param symbol - character that is checked
+     * @return false if State doesn't have symbol transitions, true if State's
+     * symbol transition has '.' symbol or same symbol as the character that is
+     * checked
+     */
+    public boolean acceptsSymbol(char symbol) {
+        if (this.hasSymbolTransition()) {
+            if (this.symbolTransition.getSymbol() == '.') {
+                return true;
+            }
+            return this.symbolTransition.getSymbol() == symbol;
+        }
+        return false;
     }
 }

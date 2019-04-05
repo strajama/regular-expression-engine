@@ -1,7 +1,5 @@
 package domain;
 
-//import java.util.ArrayList;
-//import java.util.List;
 import datastructure.StateList;
 
 /**
@@ -19,6 +17,7 @@ public abstract class NfaClass implements Nfa {
      *
      * @return state where Nfa begins
      */
+    @Override
     public State getStart() {
         return start;
     }
@@ -28,6 +27,7 @@ public abstract class NfaClass implements Nfa {
      *
      * @return state where Nfa ends
      */
+    @Override
     public State getEnd() {
         return end;
     }
@@ -38,6 +38,7 @@ public abstract class NfaClass implements Nfa {
      * @param word that is checked
      * @return true if word belongs to Nfa's language, otherwise false
      */
+    @Override
     public boolean search(String word) {
         StateList currentStates = new StateList();
         currentStates = addNextState(this.getStart(), currentStates, new StateList());
@@ -47,7 +48,7 @@ public abstract class NfaClass implements Nfa {
             StateList nextStates = new StateList();
 
             for (State state : currentStates.getStates()) {
-                if (state.hasSymbolTransition() && state.getSymbolTransition().getSymbol() == symbol) {
+                if (state.acceptsSymbol(symbol)) {
                     State nextState = state.getSymbolTransition().getTo();
                     nextStates = addNextState(nextState, nextStates, new StateList());
                 }
@@ -79,8 +80,6 @@ public abstract class NfaClass implements Nfa {
                     addNextState(etr.getTo(), nextStates, visited);
                 }
             }
-//        } else if (state.hasSymbolTransition()) {
-//            nextStates.add(state);
         } else {
             nextStates.add(state);
         }

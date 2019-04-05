@@ -37,12 +37,16 @@ public class App {
                 case "matcher":
                     String language = io.readLine(Order.LANGUAGE.getPrinting());
                     Matcher matcher = new Matcher(language);
-                    String word = io.readLine(Order.WORD.getPrinting());
-                    if (matcher.wordMatches(word)) {
-                        System.out.println("word belongs to language");
-                    } else {
-                        System.out.println("word doesn't belong to language");
-                    }
+                    String another = "";
+                    do {
+                        String word = io.readLine(Order.WORD.getPrinting());
+                        if (matcher.wordMatches(word)) {
+                            System.out.println("word belongs to language");
+                        } else {
+                            System.out.println("word doesn't belong to language");
+                        }
+                        another = io.readLine(Order.ANOTHER.getPrinting());
+                    } while (!another.equals("no"));
                     break;
                 case "postfix":
                     String infix = io.readLine(Order.POSTFIX.getPrinting());
