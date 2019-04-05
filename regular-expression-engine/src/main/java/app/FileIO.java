@@ -29,7 +29,6 @@ public class FileIO implements IO {
         words.add(language);
         try (Scanner scanner = new Scanner(new File(file))) {
             while (scanner.hasNext()) {
-                System.out.println("uusi sana");
                 words.add(scanner.next());
             }
         } catch (Exception e) {
