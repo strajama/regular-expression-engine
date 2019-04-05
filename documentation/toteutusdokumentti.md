@@ -2,7 +2,7 @@
 
 ## Ohjelman yleisrakenne
 
-Ohjelma rakentaa annetun kielen pohjalta epädeterministinen äärellisen automaatin (nondeterministic finite automata eli NFA), joka tunnistaa kuuluuko sille syötettävä sana kyseiseen kieleen vai ei.
+Ohjelma rakentaa annetun kielen pohjalta epädeterministinen äärellisen automaatin ([nondeterministic finite automata eli NFA](https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton)), joka tunnistaa kuuluuko sille syötettävä sana kyseiseen kieleen vai ei.
 
 ### NFA:n rakenne
 
