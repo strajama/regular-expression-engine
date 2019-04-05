@@ -42,6 +42,14 @@ BuilderNfa-luokan konstruktori käy jokaisen merkin (character) läpi postfix-mu
   * Operaatioista '·' ottaa pinosta kaksi Nfa:ta ja laittaa tilalle samoilla periaatteilla uuden ConcatNfa:n pinoon.
 * Kun koko merkkijono on käyty läpi, niin pinosta otetaan sinne viimeisenä jäänyt Nfa ja määritellään sen olevan BuilderNfa.
 
+### NfaClass:in search-metodi
+
+NfaClass on abstrakti yliluokka, joka toteuttaa Nfa-rajapinnan ja jonka kaikki Nfa-päätteiset luokat perivät. NfaClass:illa on search-metodi, joka käy läpi parametrina annetun sanan ja kertoo tunnistaako kyseinen Nfa sen eli päädytäänkö automaatin läpikäynnillä hyväksyvään tilaan (State, jonka isEnd on "true").
+
+EpsilonTransition on siirtymä, jolla joko siirrytään tai ei-siirrytä kahden tilan välillä ja se on ns. ilmainen eli siirtymän tekeminen ei vie merkkiä merkkijonosta. Epsilon-siirtymien takia automaatti voi olla samaan aikaan monessa eri tilassa ja ne käydään läpi rekursiivisella addNextState-kutsulla, joka palauttaa listan kaikista tiloista, joihin nykyisestä tilasta voi siirtyä epsilon-siirtymillä.
+
+Search-metodi käy läpi parametrina annetun merkkijonon merkki kerrallaan ja pitää listana kirjaa missä kaikissa Nfa:n tiloissa (State) se sillä hetkellä voi olla. Kun uusi merkki luetaan, niin search-metodi päivittää mahdollisten tilojen listan sisältämään uudet mahdolliset tilat. Jos lopussa, kun merkkijono on käyty läpi, jokin mahdollisista tiloista on hyväksyvä tila, niin search-metodi palauttaa "true" merkiksi siitä, että Nfa tunnistaa parametrina annetun sanan.
+
 ### Kaikki yhteen
 
 Kaikki kootaan yhteen Matcher-luokalla, joka saa konstruktorin syötteenä kielen String-muodossa. Matcher muuntaa sen sopivaan muotoon tekemällä siitä uuden Postfix-olion, jonka metodia toString-kutsuu ja sen jälkeen antaa sen parametrina uudelle BuilderNfa:lle. Tämän jälkeen Matcher-oliolle voi antaa sanoja wordMatches-metodille, joka kertoo kuuluuko kyseinen sana Matcherin kieleen vai ei.
