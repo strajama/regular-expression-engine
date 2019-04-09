@@ -59,7 +59,11 @@ Komento
 ```
 mvn package
 ```
-generoi hakemistoon _target_ suoritettavan jar-tiedoston regular-expression-engine-1.0-SNAPSHOT.jar
+generoi hakemistoon _target_ suoritettavan jar-tiedoston regular-expression-engine-1.0-SNAPSHOT.jar, jonka voi suorittaa komennolla
+
+```
+java -jar regular-expression-engine-1.0-SNAPSHOT.jar
+```
 
 ### Javadoc
 
