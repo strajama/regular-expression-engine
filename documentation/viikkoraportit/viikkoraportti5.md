@@ -14,7 +14,7 @@ Olen opetellut mitä eroa on terminaalin time-komennon user, real ja sys -ajoill
 
 ## Mikä jäi epäselväksi tai tuottanut vaikeuksia? Vastaa tähän kohtaan rehellisesti, koska saat tarvittaessa apua tämän kohdan perusteella.
 
-Ihmettelen minkä kokoisia tiedostoja kannattaa käyttää suorituskykytestauksessa ja mikä on liian suuri. Tämä selviää kokeilemalla.
+Ihmettelen mikä olisi järkevä tapa toteuttaa suorituskykytestaus. Vertailu grepin kanssa ei onnistu järkevästi.
 
 ## Mitä teen seuraavaksi?
 
