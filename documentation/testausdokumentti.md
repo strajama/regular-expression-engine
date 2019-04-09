@@ -8,7 +8,19 @@ Käyttöliittymästä on olemassa konsolissa toimiva versio, jotta ohjelman toim
 
 ## Suorituskykytestaus
 
-Testausta varten on tehty testi1.txt, testi2.txt ja testi3.txt -tiedostot, joissa on 0-19 merkin pituisia sanoja merkeistä a, b ja c tehtynä. Ensimmäisessä on 1000 sanaa, toisessa 1 000 000 sanaa ja kolmannessa 1 000 000 000 sanaa. Ainoastaan testi1.txt on versionhallinnassa mukana.
+Suorituskykyvertailutestausta varten tehtiin aluksi testi1.txt, testi2.txt ja testi3.txt -tiedostot, joissa on 0-19 merkin pituisia sanoja merkeistä a, b ja c tehtynä. Ensimmäisessä on 1000 sanaa, toisessa 1 000 000 sanaa ja kolmannessa 1 000 000 000 sanaa. Ainoastaan testi1.txt on versionhallinnassa mukana.
+
+Koska yksinkertaisella "a*" -kielellä kokeiltaessa grep jäi pyörimään hyvin kauan, niin tehtiin vielä 100 miljoonan sanan testi4.txt -tiedosto ja 10 miljoonan sanan testi5.txt -tiedosto.
+
+Suorituskykyvertailua varten annettiin komento
+
+```
+time grep -w -E "kieli" "testitiedosto.txt"
+```
+
+ja sen tulostamat ajat kirjattiin ylös.
+
+Omassa ohjelmassa muokattiin ohjelmaa niin, että Main-luokassa annetaan App-luokalle FileIO-parametrina ja FileIO-luokalle parametreina "kieli" ja "tekstitiedosto.txt", jonka jälkeen ohjelma ajettiin.
 
 ## Miten testit voidaan toistaa
 
