@@ -10,6 +10,7 @@ Ohjelma on aika valmis.
 
 ## Mitä opin tällä viikolla / tänään?
 
+Olen opetellut mitä eroa on terminaalin time-komennon user, real ja sys -ajoilla.
 
 ## Mikä jäi epäselväksi tai tuottanut vaikeuksia? Vastaa tähän kohtaan rehellisesti, koska saat tarvittaessa apua tämän kohdan perusteella.
 
