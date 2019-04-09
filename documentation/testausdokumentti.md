@@ -42,13 +42,13 @@ Omassa ohjelmassa muokattiin ohjelmaa niin, että Main-luokassa annetaan App-luo
 
 ### Komentorivi
 
-Testit suoritetaan komennolla
+JUnit-testit suoritetaan komennolla
 
 ```
 mvn test
 ```
 
-Testikattavuusraportti luodaan komennolla
+ja niiden testikattavuusraportti luodaan komennolla
 
 ```
 mvn jacoco:report
