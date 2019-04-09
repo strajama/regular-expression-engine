@@ -12,9 +12,22 @@ Ohjelma toimii komentoriville kirjoitettavilla käskyillä. Aluksi pitää valit
 
 ## Ohjelman FileIO:n käyttäminen
 
-FileIO-version saa käyttöön muokkaamalla Main-luokkaan app.init -riville "new ConsoleIO()" tilalle "new FileIO(String kieli, String tekstitiedosto)", jossa "kieli" on kieli, joka halutaan tunnistaa, esim. "a*|b*" ja tekstitiedosto projektin juuressa oleva txt-päätteinen tiedosto. Projektissa on tällä hetkellä valmiina testi1.txt kokeiltavaksi.
+FileIO-version saa käyttöön muokkaamalla Main-luokkaan app.init -riville "new ConsoleIO()" tilalle "new FileIO(String kieli, String tekstitiedosto)", jossa "kieli" on kieli, joka halutaan tunnistaa, esim. "a*|b*" ja tekstitiedosto projektin juuressa oleva txt-päätteinen tiedosto. Projektissa on tällä hetkellä valmiina testi1.txt kokeiltavaksi, jossa on 0-19 merkin pituisia sanoja merkeistä a, b ja c.
 
-Ohjelman ajamalla näytölle tulostuu kaikki tiedoston sanat, jotka kuuluvat annettuun kieleen.
+### Ohjelman tunnistamat merkit
+
+Ohjelmalle annetaan kieli infix-muodossa, jossa 
+
+* "*" tarkoittaa, että jokin asia toistuu 0 - monta kertaa
+* "|" tarkoittaa, että jompikumpi ehdoista on voimassa
+* "+" tarkoittaa, että jokin asia toistuu 1 - monta kertaa
+* "." tarkoittaa mitä tahansa symbolia
+* ohjelma osaa huomioida sulut () ja käsitellä niiden sisällön ennen muita.
+
+Esimerkkejä:
+
+* "(ab)*|c*" -kieleen kuuluvat sanat, joissa esiintyy 0 - monta kertaa "ab" tai "c", kuten "", "ab", "c", "ababab", "cccc", mutta ei esimerkiksi "abc".
+* "(ab|c)*" -kieleen sen sijaan kuuluu yllä lueteltujen lisäksi myös "abc" sekä "abcccab", "cabc" jne.
 
 ## Komentorivitoiminnot
 
