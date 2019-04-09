@@ -56,4 +56,10 @@ mvn jacoco:report
 
 Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco/index.html_
 
+### Suorituskykytestit
+
+Koska suorituskykytestauksessa käytetyt testitiedostot olivat niin suuria eivät ne ole versionhallinnan piirissä. 
+
+Testituloksia voi toistaa luomalla tekstitiedoston, jossa on satunnaisesti a-, b- ja c-merkkejä 0-19 merkin pituisissa sanoissa jokainen sana omalla rivillään. Tiedoston ensimmäisellä rivillä tulee lukea "matcher", toiseksi viimeisellä "/no" ja viimeisellä "quit".
+
 ## Ohjelman toiminnan empiirisen testauksen tulosten esittäminen graafisessa muodossa.
