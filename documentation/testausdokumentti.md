@@ -26,7 +26,7 @@ Suorituskykyvertailutestausta varten tehtiin aluksi testi1.txt, testi2.txt ja te
 
 Koska yksinkertaisella "a*" -kielellä kokeiltaessa grep jäi pyörimään hyvin pitkäksi aikaa, niin tehtiin vielä 100 miljoonan sanan testi4.txt -tiedosto ja 10 miljoonan sanan testi5.txt -tiedosto.
 
-Kielellä "a*" kesti testi3.txt -tiedoston ajaminen grepillä real: 57 min 42,291 s; user: 55 min 17,147 s; sys: 2 min 5,257 s. Tämän katsottiin olevan niin pitkä aika, että kyseisellä tiedostolla testaaminen ei enää palvele tämän työn suorituskykyvertailun tarkoitusta.
+Kielellä "a*" kesti testi3.txt -tiedoston ajaminen grepillä lähes tunnin. Tämän katsottiin olevan niin pitkä aika, että kyseisellä tiedostolla testaaminen ei enää palvele tämän työn suorituskykyvertailun tarkoitusta.
 
 Suorituskykyvertailua varten annettiin komento
 
