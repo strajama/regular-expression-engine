@@ -6,6 +6,20 @@ Ohjelmassa on käytössä JUnitilla tehdyt automaattiset testit itse ohjelmalle 
 
 Käyttöliittymästä on olemassa konsolissa toimiva versio, jotta ohjelman toimintaa voi henkilö mukavasti testata sekä tiedostoa lukeva versio, jotta ohjelman suorituskykyä voisi verrata grep-komennon kanssa terminaalissa. Ohjelman rakenteesta johtuen suorituskykyvertailua hiukan vääristää se, että alussa sille syötetään "matcher" ja lopussa "/no" ja "quit", mutta suurien tiedostojen kanssa tällä ei pitäisi olla isoa merkitystä.
 
+## JUnit-testaus
+
+JUnitilla testattiin ohjelman ydintoiminnallisuus ja omat tietorakenteet. Rivikattavuus on tarpeeksi kattava.
+
+![](https://github.com/strajama/regular-expression-engine/blob/master/documentation/kuvia/all.png)
+
+![](https://github.com/strajama/regular-expression-engine/blob/master/documentation/kuvia/domain.png)
+
+Yksi neljästä haarasta jää testaamatta yhdessä kohtaa Postfix-luokan toPostfix-metodissa.
+
+![](https://github.com/strajama/regular-expression-engine/blob/master/documentation/kuvia/postfix.png)
+
+![](https://github.com/strajama/regular-expression-engine/blob/master/documentation/kuvia/toPostfix.png)
+
 ## Suorituskykytestaus
 
 Suorituskykyvertailutestausta varten tehtiin aluksi testi1.txt, testi2.txt ja testi3.txt -tiedostot, joissa on 0-19 merkin pituisia sanoja merkeistä a, b ja c tehtynä. Ensimmäisessä on 1000 sanaa, toisessa 1 000 000 sanaa ja kolmannessa 1 000 000 000 sanaa. Ainoastaan testi1.txt on versionhallinnassa mukana.
