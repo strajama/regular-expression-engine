@@ -65,3 +65,5 @@ Testausta varten on tehty testi1.txt, testi2.txt ja testi3.txt -tiedostot, joiss
 Ohjelman luokkarakenne on vielä hakusessa. En ole varma ovatko erilliset Postfix- ja Matcher-luokat kovin hyvä idea, mutta niiden yhdistäminen loisi monimutkaisen megaluokan, jota ei olisi helppo lukea.
 
 Ohjelma tunnistaa vain perustoiminnot eikä monia yleisiä säännöllisiin lausekkeisiin kuuluvia erikoismerkkejä tai ilmaisuja kuten [a-z], {n}, ?, $, ^.
+
+Ohjelma luottaa siihen, että käyttäjä ei tee virheitä tai yritä käyttää ohjelmaa väärin. Ohjelma ei millään tavalla tarkasta onko annettu kieli oikeassa muodossa ja jos kielessä on ylimääräiset sulut, niin ohjelma ei osaa käsitellä niitä oikein.
