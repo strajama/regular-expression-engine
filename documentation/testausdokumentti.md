@@ -10,7 +10,9 @@ Käyttöliittymästä on olemassa konsolissa toimiva versio, jotta ohjelman toim
 
 Suorituskykyvertailutestausta varten tehtiin aluksi testi1.txt, testi2.txt ja testi3.txt -tiedostot, joissa on 0-19 merkin pituisia sanoja merkeistä a, b ja c tehtynä. Ensimmäisessä on 1000 sanaa, toisessa 1 000 000 sanaa ja kolmannessa 1 000 000 000 sanaa. Ainoastaan testi1.txt on versionhallinnassa mukana.
 
-Koska yksinkertaisella "a*" -kielellä kokeiltaessa grep jäi pyörimään hyvin kauan, niin tehtiin vielä 100 miljoonan sanan testi4.txt -tiedosto ja 10 miljoonan sanan testi5.txt -tiedosto.
+Koska yksinkertaisella "a*" -kielellä kokeiltaessa grep jäi pyörimään hyvin pitkäksi aikaa, niin tehtiin vielä 100 miljoonan sanan testi4.txt -tiedosto ja 10 miljoonan sanan testi5.txt -tiedosto.
+
+Kielellä "a*" kesti testi3.txt -tiedoston ajaminen grepillä real: 57 min 42,291 s; user: 55 min 17,147 s; sys: 2 min 5,257 s. Tämän katsottiin olevan niin pitkä aika, että kyseisellä tiedostolla testaaminen ei enää palvele tämän työn suorituskykyvertailun tarkoitusta.
 
 Suorituskykyvertailua varten annettiin komento
 
