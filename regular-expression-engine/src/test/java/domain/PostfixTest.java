@@ -48,7 +48,7 @@ public class PostfixTest {
     }
 
     @Test
-    public void toPostFix() {
+    public void toPostFix1() {
         Postfix postfix1 = new Postfix("(a|b)*c");
         assertEquals("ab|*c·", postfix1.toString());
         Postfix postfix2 = new Postfix("(aba)|(abb)");
@@ -59,5 +59,19 @@ public class PostfixTest {
         assertEquals("ab*·a·*aba··b·|", postfix4.toString());
         Postfix postfix5 = new Postfix("(a(ab)*)");
         assertEquals("aab·*·", postfix5.toString());
+    }
+
+    @Test
+    public void toPostFix2() {
+        Postfix postfix1 = new Postfix("((ab|c)*(ab)*|c*(ab|c))+");
+        assertEquals("ab·c|*ab·*·c*ab·c|·|*ab·c|*ab·*·c*ab·c|·|·", postfix1.toString());
+        Postfix postfix2 = new Postfix("((ab|c)+(ab)*|c*(ab|c))+");
+        assertEquals("ab·c|*ab·c|ab·*·c*ab·c|·|*·ab·*·c*ab·c|·|", postfix2.toString());
+        Postfix postfix3 = new Postfix("((ab|c)+(ab)*|c*)(ab|c)+");
+        assertEquals("ab·c|*ab·c|ab·*·c*|·ab·c|*·ab·*·c*|ab·c|·", postfix3.toString());
+        Postfix postfix4 = new Postfix("((ab|c)*(ab)*|c*)(ab|c)+");
+        assertEquals("ab·c|*ab·*·c*|ab·c|*·ab·c|*ab·*·c*|·ab·c|·", postfix4.toString());
+        Postfix postfix5 = new Postfix("(a+|b+|c+)+(ab|c)+");
+        assertEquals("a*ab*b·|c*c·|*·ab·c|*·ab·c|·", postfix5.toString());
     }
 }

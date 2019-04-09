@@ -87,4 +87,52 @@ public class BuilderNfaTest {
         assertFalse(builder.search("a"));
         assertTrue(builder.search("ab"));
     }
+
+    @Test
+    public void someNfa1() {
+        Nfa builder = new BuilderNfa("ab·c|*");
+        assertTrue(builder.getEnd().getIsEnd());
+        assertFalse(builder.getStart().getIsEnd());
+        assertTrue(builder.search("ab"));
+        assertTrue(builder.search("c"));
+        assertTrue(builder.search("abccccab"));
+        assertTrue(builder.search("ccccc"));
+        assertTrue(builder.search("abababab"));
+        assertTrue(builder.search("ccabcc"));
+        assertTrue(builder.search(""));
+        assertTrue(builder.search("cababcababc"));
+        assertFalse(builder.search("ac"));
+    }
+
+    @Test
+    public void someNfa2() {
+        Nfa builder = new BuilderNfa("ab·*c*|");
+        assertTrue(builder.getEnd().getIsEnd());
+        assertFalse(builder.getStart().getIsEnd());
+        assertTrue(builder.search("ab"));
+        assertTrue(builder.search("c"));
+        assertFalse(builder.search("abccccab"));
+        assertTrue(builder.search("ccccc"));
+        assertTrue(builder.search("abababab"));
+        assertFalse(builder.search("ccabcc"));
+        assertTrue(builder.search(""));
+        assertFalse(builder.search("cababcababc"));
+        assertFalse(builder.search("ca"));
+    }
+
+    @Test
+    public void someNfa3() {
+        Nfa builder = new BuilderNfa("ab·c|*ab·c|·");
+        assertTrue(builder.getEnd().getIsEnd());
+        assertFalse(builder.getStart().getIsEnd());
+        assertTrue(builder.search("ab"));
+        assertTrue(builder.search("c"));
+        assertTrue(builder.search("abccccab"));
+        assertTrue(builder.search("ccccc"));
+        assertTrue(builder.search("abababab"));
+        assertTrue(builder.search("ccabcc"));
+        assertFalse(builder.search(""));
+        assertTrue(builder.search("cababcababc"));
+        assertFalse(builder.search("ca"));
+    }
 }
