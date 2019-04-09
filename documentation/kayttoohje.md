@@ -24,10 +24,13 @@ Ohjelmalle annetaan kieli infix-muodossa, jossa
 * "." tarkoittaa mitä tahansa symbolia
 * ohjelma osaa huomioida sulut () ja käsitellä niiden sisällön ennen muita.
 
+Ohjelma ei toimi oikein, jos näitä merkkejä tai merkkiä "·" halutaan käyttää tunnistettavana symbolina.
+
 Esimerkkejä:
 
 * "(ab)*|c*" -kieleen kuuluvat sanat, joissa esiintyy 0 - monta kertaa "ab" tai "c", kuten "", "ab", "c", "ababab", "cccc", mutta ei esimerkiksi "abc".
 * "(ab|c)*" -kieleen sen sijaan kuuluu yllä lueteltujen lisäksi myös "abc" sekä "abcccab", "cabc" jne.
+* "(ab)+|c+" -kieli eroaa ensimmäisestä siinä, että se ei hyväksy tyhjää merkkijonoa.
 
 ## Komentorivitoiminnot
 
