@@ -54,6 +54,14 @@ Search-metodi käy läpi parametrina annetun merkkijonon merkki kerrallaan ja pi
 
 Kaikki kootaan yhteen Matcher-luokalla, joka saa konstruktorin syötteenä kielen String-muodossa. Matcher muuntaa sen sopivaan muotoon tekemällä siitä uuden Postfix-olion, jonka metodia toString-kutsuu ja sen jälkeen antaa sen parametrina uudelle BuilderNfa:lle. Tämän jälkeen Matcher-oliolle voi antaa sanoja wordMatches-metodille, joka kertoo kuuluuko kyseinen sana Matcherin kieleen vai ei.
 
+## Saavutetut aika- ja tilavaativuudet
+
+## Suorituskykyvertailu grepin kanssa
+
+Testausta varten on tehty testi1.txt, testi2.txt ja testi3.txt -tiedostot, joissa on 0-19 merkin pituisia sanoja merkeistä a, b ja c tehtynä. Ensimmäisessä on 1000 sanaa, toisessa 1 000 000 sanaa ja kolmannessa 1 000 000 000 sanaa. Ainoastaan testi1.txt on versionhallinnassa mukana.
+
 ## Työn mahdolliset puutteet ja parannusehdotukset
 
 Ohjelman luokkarakenne on vielä hakusessa. En ole varma ovatko erilliset Postfix- ja Matcher-luokat kovin hyvä idea, mutta niiden yhdistäminen loisi monimutkaisen megaluokan, jota ei olisi helppo lukea.
+
+Ohjelma tunnistaa vain perustoiminnot eikä monia yleisiä säännöllisiin lausekkeisiin kuuluvia erikoismerkkejä tai ilmaisuja kuten [a-z], {n}, ?, $, ^.
