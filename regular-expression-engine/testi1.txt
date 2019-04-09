@@ -1,2 +1,0 @@
-matcher a*|b* a . aaa . b . bbb . ab no
-
