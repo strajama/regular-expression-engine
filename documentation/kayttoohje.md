@@ -7,12 +7,12 @@ Ohjelmaa voi käyttää joko komentoriville sanoja kirjoittamalla tai antamalla 
 Ohjelma toimii komentoriville kirjoitettavilla käskyillä. Aluksi pitää valita jokin kolmesta: postfix, matcher tai quit.
 
 * Postfix-komennolla voit katsoa miltä kieli näyttää ohjelman käsittelemässä postfix-muodossa, josta on muokattu ylimääräiset merkit pois.
-* Matcher-komento kysyy ensin kieltä, jonka sanoja halutaan tunnistaa. Sen jälkeen sille voi kirjoittaa sanoja ja ohjelma palauttaa sanan näytölle, jos se tunnistaa sen. Jos kirjoittaa "/no", niin ohjelma lopettaa sanojen tunnistamisen.
+* Matcher-komento kysyy ensin kieltä, jonka sanoja halutaan tunnistaa. Sen jälkeen sille voi kirjoittaa sanoja ja ohjelma palauttaa sanan näytölle, jos se tunnistaa sen. Jos kirjoittaa "/no", niin ohjelma lopettaa sanojen tunnistamisen ja kertoo kuinka monta kielen sanaa sille yhteensä syötettiin.
 * Quit-komento sulkee ohjelman.
 
 ## Ohjelman FileIO:n käyttäminen
 
-FileIO-version saa käyttöön muokkaamalla Main-luokkaan app.init -riville "new ConsoleIO()" tilalle "new FileIO(String kieli, String tekstitiedosto)", jossa "kieli" on kieli, joka halutaan tunnistaa, esim. "a*|b*" ja tekstitiedosto projektin juuressa oleva txt-päätteinen tiedosto. Projektissa on tällä hetkellä valmiina testi1.txt ja testi2.txt kokeiltavaksi.
+FileIO-version saa käyttöön muokkaamalla Main-luokkaan app.init -riville "new ConsoleIO()" tilalle "new FileIO(String kieli, String tekstitiedosto)", jossa "kieli" on kieli, joka halutaan tunnistaa, esim. "a*|b*" ja tekstitiedosto projektin juuressa oleva txt-päätteinen tiedosto. Projektissa on tällä hetkellä valmiina testi1.txt kokeiltavaksi.
 
 Ohjelman ajamalla näytölle tulostuu kaikki tiedoston sanat, jotka kuuluvat annettuun kieleen.
 

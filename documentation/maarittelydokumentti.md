@@ -22,6 +22,7 @@ Ohjelma saa syötteenä säännöllisen lausekkeen (regular expression) ja sanan
 * "*" tarkoittaa, että jokin asia toistuu 0 - monta kertaa
 * "|" tarkoittaa, että jompikumpi ehdoista on voimassa
 * "+" tarkoittaa, että jokin asia toistuu 1 - monta kertaa
+* "." tarkoittaa mitä tahansa symbolia
 * ohjelma osaa huomioida sulut () ja käsitellä niiden sisällön ennen muita.
 
 ## Tavoitteena olevat aika- ja tilavaativuudet (m.m. O-analyysit)
