@@ -34,9 +34,7 @@ Suorituskykyvertailua varten annettiin komento
 time grep -w -E "kieli" "testitiedosto.txt"
 ```
 
-ja sen tulostamat ajat kirjattiin ylös.
-
-Omassa ohjelmassa muokattiin ohjelmaa niin, että Main-luokassa annetaan App-luokalle FileIO-parametrina ja FileIO-luokalle parametreina "kieli" ja "tekstitiedosto.txt", jonka jälkeen ohjelma ajettiin.
+ja sen tulostamat ajat kirjattiin ylös. Tuloksia ylöskirjatessa huomattiin etteivät ne ole millään tavalla vertailukelpoisia tehdyn ohjelman tulosten kanssa, mutta voisi olla kiinnostavaa tehdä vertailua siitä hidastuvatko ne samalla tavalla monimutkaisia kieliä tarkastaessa.
 
 ## Miten testit voidaan toistaa
 
@@ -63,3 +61,5 @@ Koska suorituskykytestauksessa käytetyt testitiedostot olivat niin suuria eivä
 Testituloksia voi toistaa luomalla tekstitiedoston, jossa on satunnaisesti a-, b- ja c-merkkejä 0-19 merkin pituisissa sanoissa jokainen sana omalla rivillään. Tiedoston ensimmäisellä rivillä tulee lukea "matcher", toiseksi viimeisellä "/no" ja viimeisellä "quit".
 
 ## Ohjelman toiminnan empiirisen testauksen tulosten esittäminen graafisessa muodossa.
+
+Kesken
