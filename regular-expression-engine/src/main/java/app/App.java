@@ -37,9 +37,9 @@ public class App {
             switch (command) {
                 case "matcher":
                     String language = io.readLine(Order.LANGUAGE.getPrinting());
-                    long aikaAlussa = System.currentTimeMillis();
+                    long timeAtTheBeginning = System.currentTimeMillis();
                     Matcher matcher = new Matcher(language);
-                    long matcherAika = System.currentTimeMillis();
+                    long matcherTime = System.currentTimeMillis();
                     String word = "";
                     counter = 0;
                     do {
@@ -51,9 +51,9 @@ public class App {
                             System.out.println("");
                         }
                     } while (!word.equals("/no"));
-                    long aikaLopussa = System.currentTimeMillis();
-                    System.out.println("Operaatioon kului aikaa: " + (aikaLopussa - aikaAlussa) + "ms.");
-                    System.out.println("Matcherin rakentamiseen kului aikaa: " + (matcherAika - aikaAlussa) + "ms.");
+                    long timeAtTheEnd = System.currentTimeMillis();
+                    System.out.println("Whole operation lasted: " + (timeAtTheEnd - timeAtTheBeginning) + "ms.");
+                    System.out.println("Building the Matcher lasted: " + (matcherTime - timeAtTheBeginning) + "ms.");
                     System.out.println("You printed "+counter+" words.");
                     break;
                 case "postfix":

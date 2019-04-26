@@ -15,7 +15,7 @@ public class Main {
      */
     public static void main(String[] args) throws Exception {
         App application = new App();
-        application.init(new ConsoleIO());
+        application.init(new FileIO("(ab)+|c+", "testi1.txt"));
         application.run();
     }
 
