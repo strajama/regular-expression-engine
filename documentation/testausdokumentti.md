@@ -36,6 +36,32 @@ time grep -w -E "kieli" "testitiedosto.txt"
 
 ja sen tulostamat ajat kirjattiin ylös. Tuloksia ylöskirjatessa huomattiin etteivät ne ole millään tavalla vertailukelpoisia tehdyn ohjelman tulosten kanssa, mutta voisi olla kiinnostavaa tehdä vertailua siitä hidastuvatko ne samalla tavalla monimutkaisia kieliä tarkastaessa.
 
+Grepillä ajettiin seuraavat kielet:
+- a*
+- a+
+- (ab|c)*
+- (ab|c)+
+- (ab)*|c*
+- (ab)+|c+
+- (a|b)*|(a|c)*
+- (a|b)+|(a|c)+
+
+Sininen pylväs kuvaa grepin suoritusaikaa, kun kielessä on käytetty '*' -merkkiä ja oranssi pylväs '+' -merkillistä kieltä. Pylvään korkeus kuvaa grepin suoritusaikaa.
+
+Miljoonan rivin tiedosto
+![](https://github.com/strajama/regular-expression-engine/blob/master/documentation/kuvia/1000%20000.png)
+
+Kymmenen miljoonan rivin tiedosto
+![](https://github.com/strajama/regular-expression-engine/blob/master/documentation/kuvia/10%20000%20000.png)
+
+Sadan miljoonan rivin tiedosto
+![](https://github.com/strajama/regular-expression-engine/blob/master/documentation/kuvia/100%20000%20000.png)
+
+Miljardin sanan tiedosto
+![](https://github.com/strajama/regular-expression-engine/blob/master/documentation/kuvia/1000%20000%20000.png)
+
+Visuaalisesta esityksestä näkee, että grep suoriutuu nopeammin sellaisen kielen sanojen tulkinnasta, joissa toistuu "yksi tai monta kertaa" jokin merkkijono kuin sellaisen, jossa on "nolla tai monta kertaa" kyseinen merkkijono. Ero pienenee rivimäärän kasvaessa, mutta on silti huomattava.
+
 ## Miten testit voidaan toistaa
 
 ### Komentorivi
