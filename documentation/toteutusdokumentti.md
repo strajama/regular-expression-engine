@@ -58,7 +58,11 @@ Kaikki kootaan yhteen Matcher-luokalla, joka saa konstruktorin syötteenä kiele
 
 ## Suorituskykyvertailu grepin kanssa
 
-Testausta varten on tehty testi1.txt, testi2.txt ja testi3.txt -tiedostot, joissa on 0-19 merkin pituisia sanoja merkeistä a, b ja c tehtynä. Ensimmäisessä on 1000 sanaa, toisessa 1 000 000 sanaa ja kolmannessa 1 000 000 000 sanaa. Ainoastaan testi1.txt on versionhallinnassa mukana.
+Testausta varten on tehty testi1.txt, testi2.txt ja testi3.txt -tiedostot, joissa on 0-19 merkin pituisia sanoja merkeistä a, b ja c tehtynä, jokainen omalla rivillään. Ensimmäisessä on 1000 sanaa, toisessa 1 000 000 sanaa ja kolmannessa 1 000 000 000 sanaa. Ainoastaan testi1.txt on versionhallinnassa mukana. Myöhemmin tehtiin vielä testi4.txt, jossa on 100 miljoonaa sanaa sekä testi5.txt, jossa on 10 miljoonaa sanaa, koska miljardin sanan lukemiseen meni grepillä todella kauan aikaa.
+
+Hyvin nopeasti huomattiin ettei ohjelman vertailu grepin kanssa onnistu tällä tavoin, koska ohjelma oli niin paljon hitaampi. Tämä saattoi johtua ratkaisusta käyttää tiedoston lukemiseen Javan Scanner-luokkaa tai sitten ohjelma on vain todella hidas.
+
+Grepillä kieliä tunnistaessa huomattiin, että grep käsitteli huomattavasti nopeammin tiedoston, jos sille oli annettu "a+" kuin "a*" -kieli, vaikka näiden ainoa ero on siinä, että "a*" hyväksyy myös tyhjän merkkijonon. Tämä toistui kaikissa kielissä, joiden ainoa ero oli samantapainen. Päätettiin verrata ohjelmaa grepin toimintaan katsomalla toistuuko sama ilmiö ohjelman suorituksessa.
 
 ## Työn mahdolliset puutteet ja parannusehdotukset
 
@@ -66,4 +70,4 @@ Ohjelman luokkarakenne on vielä hakusessa. En ole varma ovatko erilliset Postfi
 
 Ohjelma tunnistaa vain perustoiminnot eikä monia yleisiä säännöllisiin lausekkeisiin kuuluvia erikoismerkkejä tai ilmaisuja kuten [a-z], {n}, ?, $, ^.
 
-Ohjelma luottaa siihen, että käyttäjä ei tee virheitä tai yritä käyttää ohjelmaa väärin. Ohjelma ei millään tavalla tarkasta onko annettu kieli oikeassa muodossa ja jos kielessä on ylimääräiset sulut, niin ohjelma ei osaa käsitellä niitä oikein.
+Ohjelma luottaa siihen, että käyttäjä ei tee virheitä tai yritä käyttää ohjelmaa väärin. Ohjelma ei millään tavalla tarkasta onko annettu kieli oikeassa muodossa ja jos kielessä on ns. turhat sulut, niin ohjelma ei osaa käsitellä niitä oikein.
