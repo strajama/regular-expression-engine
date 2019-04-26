@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Ohjelmaa voi käyttää joko komentoriville sanoja kirjoittamalla tai antamalla sille valmis tekstitiedosto. Oletuksena ohjelma avautuu konsoliversion, koska tekstitiedostoversio on tehty suorituskykytestausta varten.
+Ohjelmaa voi käyttää joko komentoriville sanoja kirjoittamalla tai antamalla sille valmis tekstitiedosto. Versiota voi muokata muuttamalla Main-luokassa sille application.init -metodin parametriksi joko ConsoleIO() tai FileIO(String kieli, String tekstitiedosto).
 
 ## Ohjelman ConsoleIO:n käyttäminen
 
