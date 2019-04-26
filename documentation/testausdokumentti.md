@@ -22,11 +22,9 @@ Yksi neljästä haarasta jää testaamatta yhdessä kohtaa Postfix-luokan toPost
 
 ## Suorituskykytestaus
 
-Suorituskykyvertailutestausta varten tehtiin aluksi testi1.txt, testi2.txt ja testi3.txt -tiedostot, joissa on 0-19 merkin pituisia sanoja merkeistä a, b ja c tehtynä. Ensimmäisessä on 1000 sanaa, toisessa 1 000 000 sanaa ja kolmannessa 1 000 000 000 sanaa. Ainoastaan testi1.txt on versionhallinnassa mukana.
+Suorituskykyvertailutestausta varten tehtiin aluksi testi1.txt, testi2.txt ja testi3.txt -tiedostot, joissa on 0-19 merkin pituisia sanoja merkeistä a, b ja c tehtynä, jokainen omalla rivillään. Ensimmäisessä on 1000 sanaa, toisessa 1 000 000 sanaa ja kolmannessa 1 000 000 000 sanaa. Ainoastaan testi1.txt on versionhallinnassa mukana. Lisäksi tiedoston ensimmäisellä rivillä on sana "matcher", toiseksi viimeisellä rivillä "/no" ja viimeisellä "quit", jotta ohjelma toimisi oikein.
 
-Koska yksinkertaisella "a*" -kielellä kokeiltaessa grep jäi pyörimään hyvin pitkäksi aikaa, niin tehtiin vielä 100 miljoonan sanan testi4.txt -tiedosto ja 10 miljoonan sanan testi5.txt -tiedosto.
-
-Kielellä "a*" kesti testi3.txt -tiedoston ajaminen grepillä lähes tunnin. Tämän katsottiin olevan niin pitkä aika, että kyseisellä tiedostolla testaaminen ei enää palvele tämän työn suorituskykyvertailun tarkoitusta.
+Koska yksinkertaisella "a*" -kielellä kokeiltaessa grep jäi pyörimään hyvin pitkäksi aikaa miljardin sanan ja rivin testi3.txt -tiedoston kanssa, niin tehtiin varmuuden vuoksi vielä 100 miljoonan sanan testi4.txt -tiedosto ja 10 miljoonan sanan testi5.txt -tiedosto.
 
 Suorituskykyvertailua varten annettiin komento
 
