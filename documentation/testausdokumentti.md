@@ -84,8 +84,12 @@ Koska suorituskykytestauksessa käytetyt testitiedostot olivat niin suuria eivä
 
 Testituloksia voi toistaa luomalla tekstitiedoston, jossa on satunnaisesti a-, b- ja c-merkkejä 0-19 merkin pituisissa sanoissa jokainen sana omalla rivillään. Tiedoston ensimmäisellä rivillä tulee lukea "matcher", toiseksi viimeisellä "/no" ja viimeisellä "quit".
 
-Ohjelman suorituskykyä testattiin FileIO-version avulla, jolle annettiin syötteenä kieli ja tuhannen sanan testi1.txt-tiedosto sekä miljoonan sanan testi2.txt-tiedosto. Suorituskykyä mitattiin tulostamalla ulos aika, joka ohjelmalla kesti Matcherin rakentamiseen sekä koko tiedoston rivien lukemiseen ja vielä erikseen kauanko Matcherin rakentaminen vei aikaa. Jokainen testitapaus toistettiin kymmenen kertaa ja tuloksista otettiin mediaani. Suorituskykytestauksen tulokset vaihtelivat paljon eri toistokerroilla. Ilmeisesti tietokone optimoi laskennassa välimuistin kanssa.
+Ohjelman suorituskykyä testattiin FileIO-version avulla, jolle annettiin syötteenä kieli ja tuhannen sanan testi1.txt-tiedosto sekä miljoonan sanan testi2.txt-tiedosto. Suorituskykyä mitattiin tulostamalla ulos aika, joka ohjelmalla kesti Matcherin rakentamiseen sekä koko tiedoston rivien lukemiseen ja vielä erikseen kauanko Matcherin rakentaminen vei aikaa. Jokainen testitapaus toistettiin kymmenen kertaa ja tuloksista otettiin keskiarvo. Suorituskykytestauksen tulokset vaihtelivat paljon eri toistokerroilla eikä grepissä tapahtuvaa nopeuseroa pystytty toistamaan. Ilmeisesti tietokone optimoi laskennassa välimuistin kanssa.
 
 ## Ohjelman toiminnan empiirisen testauksen tulosten esittäminen graafisessa muodossa.
 
-Kesken
+Sininen pylväs kuvaa grepin suoritusaikaa, kun kielessä on käytetty '*' -merkkiä ja oranssi pylväs '+' -merkillistä kieltä. Pylvään korkeus kuvaa ohjelman suoritusaikaa.
+
+Tuhannen rivin tiedoston tulokset
+
+![](https://github.com/strajama/regular-expression-engine/blob/master/documentation/kuvia/1000own.png)
