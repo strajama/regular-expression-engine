@@ -84,7 +84,9 @@ Koska suorituskykytestauksessa käytetyt testitiedostot olivat niin suuria eivä
 
 Testituloksia voi toistaa luomalla tekstitiedoston, jossa on satunnaisesti a-, b- ja c-merkkejä 0-19 merkin pituisissa sanoissa jokainen sana omalla rivillään. Tiedoston ensimmäisellä rivillä tulee lukea "matcher", toiseksi viimeisellä "/no" ja viimeisellä "quit".
 
-Ohjelman suorituskykyä testattiin FileIO-version avulla, jolle annettiin syötteenä kieli ja tuhannen sanan testi1.txt-tiedosto sekä miljoonan sanan testi2.txt-tiedosto. Suorituskykyä mitattiin tulostamalla ulos aika, joka ohjelmalla kesti Matcherin rakentamiseen sekä koko tiedoston rivien lukemiseen ja vielä erikseen kauanko Matcherin rakentaminen vei aikaa. Jokainen testitapaus toistettiin kymmenen kertaa ja tuloksista otettiin keskiarvo. Suorituskykytestauksen tulokset vaihtelivat paljon eri toistokerroilla eikä grepissä tapahtuvaa nopeuseroa pystytty toistamaan. Ilmeisesti tietokone optimoi laskennassa välimuistin kanssa.
+Ohjelman suorituskykyä testattiin FileIO-version avulla, jolle annettiin syötteenä kieli ja tuhannen sanan testi1.txt-tiedosto sekä miljoonan sanan testi2.txt-tiedosto. Suorituskykyä mitattiin tulostamalla ulos aika, joka ohjelmalla kesti Matcherin rakentamiseen sekä koko tiedoston rivien lukemiseen ja vielä erikseen kauanko Matcherin rakentaminen vei aikaa. Jokainen testitapaus toistettiin kymmenen kertaa ja tuloksista kirjattiin keskiarvo.
+
+Suorituskykytestauksen tulokset vaihtelivat paljon eri toistokerroilla eikä grepissä tapahtuvaa nopeuseroa pystytty toistamaan. Ilmeisesti tietokone optimoi laskennassa välimuistin kanssa. Myöskään kielen kääntämisessä infix-muodosta postfix-muotoon ja äärellisen automaatin rakentamiseen kuluvassa ajassa Matcher-luokan avulla ei pystytty osoittamaan suoritusaikaeroja.
 
 ## Ohjelman toiminnan empiirisen testauksen tulosten esittäminen graafisessa muodossa.
 
@@ -93,3 +95,11 @@ Sininen pylväs kuvaa grepin suoritusaikaa, kun kielessä on käytetty '*' -merk
 Tuhannen rivin tiedoston tulokset
 
 ![](https://github.com/strajama/regular-expression-engine/blob/master/documentation/kuvia/1000own.png)
+
+Miljoonan rivin tiedoston tulokset
+
+![](https://github.com/strajama/regular-expression-engine/blob/master/documentation/kuvia/1000000own.png)
+
+Matcher-luokan rakennusaika
+
+![](https://github.com/strajama/regular-expression-engine/blob/master/documentation/kuvia/matcher.png)
