@@ -15,8 +15,19 @@ public class Main {
      */
     public static void main(String[] args) throws Exception {
         App application = new App();
-        application.init(new FileIO("(ab)+|c+", "testi1.txt"));
+        application.init(new ConsoleIO());
         application.run();
     }
 
 }
+/*
+a* 
+a+ 
+(ab|c)*  
+(ab|c)+ 
+(ab)*|c* 
+(ab)+|c+  
+(a|b)*|(a|c)* 
+(a|b)+|(a|c)+ 
+
+*/
